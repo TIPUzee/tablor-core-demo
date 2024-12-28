@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+div, button, input, select, textarea {
+  text-wrap: nowrap;
+  margin: 0.3rem
+}
+
+thead {
+  user-select: none;
+}
+
+thead tr:nth-child(1) {
+  height: 1.3rem;
+}
+
+thead tr:nth-child(2) th {
+  cursor: pointer;
+}
+
+table div {
+  width: 7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table td:nth-child(5) div,
+table td:nth-child(6) div,
+table td:nth-last-child(1) div,
+table td:nth-last-child(3) div {
+  width: 13rem !important;
+}
+
+.hint {
+  color: #7a7a7a;
+  font-size: 0.8rem;
+  margin-top: -0.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.hint-title {
+  color: #343434;
+}
+
+
+app-search, .searchQuery {
+  display: block;
+  padding: 0.4rem;
+  border: 2px solid #e00000;
+  border-radius: 0.3rem;
+}
+
+input.big {
+  width: 80%;
+}
