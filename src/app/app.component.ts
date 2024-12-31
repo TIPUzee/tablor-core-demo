@@ -5,12 +5,14 @@ import { TablorCore, TablorCoreTypes } from 'tablor-core-beta'
 import { Transaction, transactionFields } from './transactions_config'
 import { transactions } from './transactions_dataset'
 import { SearchComponent } from './search/search.component'
+import { PaginatorComponent } from './paginator/paginator.component'
 
 
 @Component({
     selector: 'app-root',
     imports: [
         SearchComponent,
+        PaginatorComponent,
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',

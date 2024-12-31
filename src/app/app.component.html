@@ -1,3 +1,5 @@
+<h3>Sorry, this demo is still complete, will be completed soon</h3>
+
 <app-search [tablor]="tablor"></app-search>
 
 <br>
@@ -12,13 +14,17 @@
    Items will be first sorted by 'User' field and then nested by 'Bank' field.
 </div>
 
+<br>
+
+<app-paginator [tablor]="tablor"></app-paginator>
+
 <table>
    <thead>
       <tr>
          @for (field of tablor.getFieldsAsArray(); track field.key) {
             <th>
                @if (tablor.isFieldSorted(field.key)) {
-                  {{ tablor.getSortingOrder(field.key) }}
+                  {{ tablor.getSortingFieldOrder(field.key) }}
                }
             </th>
          }

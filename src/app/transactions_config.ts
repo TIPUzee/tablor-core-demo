@@ -1,7 +1,7 @@
 import { TablorCoreTypes as TcT } from 'tablor-core-beta'
 
 export type Transaction = {
-    transactionId: string;
+    transactionId: number;
     user: string;
     bank: string;
     transactionDate: string;

@@ -1,0 +1,18 @@
+<div>
+   <button
+      (click)="tablor.setPageNb(tablor.getPageNb() - 1)"
+   >Prev Page
+   </button>
+   <button
+      (click)="tablor.setPageNb(tablor.getPageNb() + 1)"
+   >Next Page
+   </button>
+</div>
+
+Current Page Number:
+<input
+   type="number"
+   placeholder="Page Number"
+   [ngModel]="tablor.getPageNb()"
+   (ngModelChange)="tablor.setPageNb($event)"
+>

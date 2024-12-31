@@ -1,38 +1,35 @@
 {
-  // These tasks will run in order when initializing your CodeSandbox project.
-  "setupTasks": [
-    {
-      "name": "Install Dependencies",
-      "command": "pnpm install"
+    "setupTasks": [
+        {
+            "name": "Install Dependencies",
+            "command": "pnpm install"
+        }
+    ],
+    "tasks": {
+        "ng": {
+            "name": "ng",
+            "command": "NG_CLI_ANALYTICS=false pnpm ng",
+            "runAtStart": false
+        },
+        "start": {
+            "name": "start",
+            "command": "NG_CLI_ANALYTICS=false pnpm start",
+            "runAtStart": true
+        },
+        "build": {
+            "name": "build",
+            "command": "NG_CLI_ANALYTICS=false pnpm build",
+            "runAtStart": false
+        },
+        "watch": {
+            "name": "watch",
+            "command": "NG_CLI_ANALYTICS=false pnpm watch",
+            "runAtStart": false
+        },
+        "test": {
+            "name": "test",
+            "command": "NG_CLI_ANALYTICS=false pnpm test",
+            "runAtStart": false
+        }
     }
-  ],
-
-  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
-  "tasks": {
-    "ng": {
-      "name": "ng",
-      "command": "NG_CLI_ANALYTICS=false pnpm ng",
-      "runAtStart": false
-    },
-    "start": {
-      "name": "start",
-      "command": "NG_CLI_ANALYTICS=false pnpm start",
-      "runAtStart": true
-    },
-    "build": {
-      "name": "build",
-      "command": "NG_CLI_ANALYTICS=false pnpm build",
-      "runAtStart": false
-    },
-    "watch": {
-      "name": "watch",
-      "command": "NG_CLI_ANALYTICS=false pnpm watch",
-      "runAtStart": false
-    },
-    "test": {
-      "name": "test",
-      "command": "NG_CLI_ANALYTICS=false pnpm test",
-      "runAtStart": false
-    }
-  }
 }
