@@ -1,11 +1,13 @@
 <div>
    <button
       (click)="tablor.setPageNb(tablor.getPageNb() - 1)"
-   >Prev Page
+   >
+      Prev Page
    </button>
    <button
       (click)="tablor.setPageNb(tablor.getPageNb() + 1)"
-   >Next Page
+   >
+      Next Page
    </button>
 </div>
 
@@ -16,3 +18,44 @@ Current Page Number:
    [ngModel]="tablor.getPageNb()"
    (ngModelChange)="tablor.setPageNb($event)"
 >
+
+<br>
+
+Items per Page:
+
+<button (click)="tablor.setNbOfItemsPerPage(-1)">
+   Set -1
+</button>
+
+<button (click)="tablor.setNbOfItemsPerPage(10)">
+   Set 10
+</button>
+
+<button (click)="tablor.setNbOfItemsPerPage(20)">
+   Set 20
+</button>
+
+<button (click)="tablor.setNbOfItemsPerPage(100)">
+   Set 100
+</button>
+
+<br>
+
+<input
+   type="number"
+   placeholder="Items per Page"
+   [ngModel]="tablor.getNbOfItemsPerPage()"
+   (ngModelChange)="tablor.setNbOfItemsPerPage($event)"
+>
+
+<br>
+
+Searched Items: {{ tablor.getNbOfSearchedItems() }}
+
+<br>
+
+Total Items: {{ tablor.getNbOfItems() }}
+
+<br>
+
+Current Page Size: {{ tablor.getPageSize() }}
