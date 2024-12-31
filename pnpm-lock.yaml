@@ -36,8 +36,8 @@ importers:
         specifier: ~7.8.0
         version: 7.8.1
       tablor-core-beta:
-        specifier: ^1.0.2-h
-        version: 1.0.2-h(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))
+        specifier: 1.0.2-l
+        version: 1.0.2-l(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -3933,8 +3933,8 @@ packages:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
     engines: {node: '>=0.10'}
 
-  tablor-core-beta@1.0.2-h:
-    resolution: {integrity: sha512-IMD83rBNMCGoimTrdJVeMTQnXCNrIqSe1kYqhxu/l1AVT007RUxjKq0i9J+ObEVcB5s3BVOdm1fKxIbwpeuagw==}
+  tablor-core-beta@1.0.2-l:
+    resolution: {integrity: sha512-IA6/ZwpYvVXi6Lv8aWu0sZlcxoNWO75LGo/XE1zNXnst4wFR05L8QhYu53gszG1fsd0CHgf/H3G/CjTzmMY8rA==}
     peerDependencies:
       '@angular/common': ^19.0.0
       '@angular/core': ^19.0.0
@@ -8472,7 +8472,7 @@ snapshots:
 
   symbol-observable@4.0.0: {}
 
-  tablor-core-beta@1.0.2-h(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)):
+  tablor-core-beta@1.0.2-l(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)):
     dependencies:
       '@angular/common': 19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.0.5(rxjs@7.8.1)(zone.js@0.15.0)
