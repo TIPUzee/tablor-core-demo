@@ -1,20 +1,22 @@
 import { Component, Input } from '@angular/core'
-import { TablorCore } from 'tablor-core-beta'
-import { Transaction } from '../transactions_config'
 import { FormsModule } from '@angular/forms'
 
+import { Transaction } from '../../dataset/transactions-type'
+
+import { TablorCore } from 'tablor-core-beta'
+
+
 @Component({
-  selector: 'app-paginator',
+    selector: 'app-paginator',
     imports: [
         FormsModule,
     ],
-  templateUrl: './paginator.component.html',
-  styleUrl: './paginator.component.scss'
+    templateUrl: './paginator.component.html',
 })
-export class PaginatorComponent {
+export class PaginatorComponent
+{
 
-      @Input({ required: true }) tablor!: TablorCore<Transaction>
+    @Input({ required: true }) tablor!: TablorCore<Transaction>
 
     currPageNb: number = 1
-
 }

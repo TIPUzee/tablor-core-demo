@@ -1,61 +1,181 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   user-select: none;
+}
+
+
 h3 {
-  color: #e00000;
+   color: #e00000;
 }
 
 body {
-  padding-bottom: 4rem;
+   padding: 0.8rem 0.8rem 4rem;
 }
 
-div, button, input, select, textarea {
-  text-wrap: nowrap;
-  margin: 0.3rem
+hr {
+   margin-block: 0.25rem;
+   border: none;
+   border-top: 1px solid #d3d3d3;
 }
 
-thead {
-  user-select: none;
+table tr:nth-child(even) {
+   background: rgba(94, 94, 94, 0.4);
 }
 
-thead tr:nth-child(1) {
-  height: 1.3rem;
-}
-
-thead tr:nth-child(2) th {
-  cursor: pointer;
-}
-
-table div {
-  width: 7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-table td:nth-child(5) div,
-table td:nth-child(6) div,
-table td:nth-last-child(1) div,
-table td:nth-last-child(3) div {
-  width: 13rem !important;
+table tr:nth-child(odd) {
+   background: rgba(94, 94, 94, 0.11);
 }
 
 .hint {
-  color: #7a7a7a;
-  font-size: 0.8rem;
-  margin-top: -0.2rem;
-  margin-bottom: 0.7rem;
+   color: #7a7a7a;
+   font-size: 0.8rem;
 }
 
-.hint-title {
-  color: #343434;
+button.submit {
+   background-color: #e00000;
+   color: white;
+   border: none;
+   border-radius: 0.3rem;
+   padding: 0.4rem;
+   cursor: pointer;
+   margin-block: 0.6rem;
 }
 
 
-app-search, .searchQuery {
-  display: block;
-  padding: 0.4rem;
-  border: 2px solid #e00000;
-  border-radius: 0.3rem;
+summary, select, button {
+   cursor: pointer;
 }
 
-input.big {
-  width: 80%;
+
+app-root > div {
+   &:has(> table) {
+      max-width: 100%;
+      height: 16rem;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 0.4rem;
+      border-radius: 0.3rem;
+      background-color: #f1f1f1;
+      box-shadow: 0 1px 10px rgb(66, 66, 66);
+      resize: vertical;
+   }
+
+   > table {
+      thead tr {
+         position: sticky;
+         top: 0;
+         background-color: #b7b7b7 !important;
+      }
+
+      td div {
+         font-size: 0.8rem;
+         margin-block: 0.6rem;
+         margin-inline: 0.1rem;
+         user-select: text;
+      }
+
+      td:nth-child(1) div {
+         width: 1rem;
+      }
+
+      td:nth-child(2) div {
+         width: 4rem;
+      }
+
+      td:nth-child(3) div {
+         width: 3.5rem;
+      }
+
+      td:nth-child(4) div {
+         width: 9rem;
+      }
+
+      td:nth-child(5) div,
+      td:nth-child(6) div,
+      td:nth-child(7) div {
+         width: 9rem;
+      }
+
+      td:nth-child(8) div,
+      td:nth-child(9) div,
+      td:nth-child(10) div,
+      td:nth-child(11) div,
+      td:nth-child(12) div,
+      td:nth-child(14) div,
+      td:nth-child(15) div {
+         width: 3.5rem;
+         word-break: break-word;
+      }
+   }
+}
+
+//
+// Search Components
+//
+
+app-search-by-string-query,
+app-search-by-date-ranges,
+app-search-by-number-ranges,
+app-search-by-exact-values,
+app-search-by-custom-fn,
+app-search-by-void,
+app-searched-options {
+   display: block;
+   padding: 0.8rem;
+   border-radius: 0.3rem;
+   background-color: #f1f1f1;
+   box-shadow: 0 1px 10px rgb(66, 66, 66);
+   margin-block: 0.5rem;
+}
+
+//
+// Search By Date Range
+//
+
+app-search-by-date-ranges details {
+   font-size: 0.8rem;
+   width: 100%;
+}
+
+app-search-by-date-ranges details input[type="number"] {
+   width: 3.5rem;
+}
+
+app-search-by-date-ranges table {
+   border: 2px solid rgba(201, 0, 0, 0.51);
+}
+
+
+//
+// Search By String Query
+//
+
+app-search-by-string-query > details {
+   font-size: 0.8rem;
+   width: 100%;
+   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+   padding: 0.5rem;
+   border-radius: 0.3rem;
+}
+
+app-search-by-string-query > details > button {
+   font-size: 0.7rem;
+}
+
+app-search-by-string-query > details > div {
+   width: fit-content;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+
+//
+// Searched Options
+//
+
+app-searched-options details {
+   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+   padding: 0.5rem;
+   border-radius: 0.3rem;
 }

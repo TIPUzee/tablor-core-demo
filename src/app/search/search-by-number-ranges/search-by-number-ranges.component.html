@@ -1,0 +1,123 @@
+Select Number Range Field
+<select #numberRangeField>
+   <option value="transactionId">Transaction Id</option>
+   <option value="amount">Amount</option>
+</select>
+
+<button (click)="addNumberRange(numberRangeField.value)">Add</button>
+
+<hr>
+
+<table>
+   <tr>
+      <th>Field</th>
+      <th>Number Range(s)</th>
+   </tr>
+
+   @for (field of getFields(form.ranges); track field) {
+      <tr>
+         <td>{{ field }}</td>
+         <td>
+            <table>
+               <tr>
+                  <th>Min</th>
+                  <th>Max</th>
+               </tr>
+               @for (range of form.ranges[field]; track range; let i = $index) {
+                  <tr>
+                     <td>
+                        <input
+                           type="number"
+                           [(ngModel)]="range.min"
+                        >
+                     </td>
+                     <td>
+                        <input
+                           type="number"
+                           [(ngModel)]="range.max"
+                        >
+                     </td>
+                     <td>
+                        <button (click)="deleteNumberRange(field, i)">Delete Range</button>
+                     </td>
+                  </tr>
+               }
+            </table>
+         </td>
+      </tr>
+   }
+</table>
+
+<hr>
+Must match all fields' requirements:
+<input type="checkbox" [(ngModel)]="form.mustMatchAllFields">
+
+<hr>
+@if (form.prevResults) {
+   Prev Search Behavior:
+   <select
+      [(ngModel)]="form.prevResults.action"
+   >
+      <option value="Keep">Keep All Prev Searches</option>
+      <option value="Clear">Clear Prev Searches</option>
+   </select>
+   <div class="hint">
+      // Remaining Searches' Results will be Merged into New Search
+   </div>
+
+   @if (form.prevResults.action === 'Clear') {
+      <hr>
+      Prev Search Scope to Clear:
+      <select
+         [(ngModel)]="form.prevResults.scope"
+      >
+         <option value="All">Clear All</option>
+         <option value="Single">Clear Single</option>
+      </select>
+
+      @if (form.prevResults.scope === 'Single') {
+         <hr>
+         Prev Search Target to Clear:
+         <select
+            [ngModel]="form.prevResults.target"
+            (ngModelChange)="form.prevResults.target = ($event == '-1' ? -1 : $event)"
+         >
+            <option value="Last">Last</option>
+            <option value="LastIfSameType">Last if Same Type Search</option>
+            <option
+               [value]="getDummyNumber(form.prevResults.target)"
+            >{{ getDummyNumber(form.prevResults.target, true) }}
+            </option>
+         </select>
+
+         @if (typeof (form.prevResults.target) === 'number') {
+            <hr>
+            Index:
+            <input
+               type="number" [ngModel]="form.prevResults.target"
+               (ngModelChange)="form.prevResults ? form.prevResults.target = $event : null"
+            >
+         }
+      }
+   }
+}
+
+<hr>
+<select
+   [ngModel]="form.searchTarget?.scope"
+   (ngModelChange)="form.searchTarget ? form.searchTarget.scope = $event : null"
+>
+   <option disabled selected value="">Select Target Items</option>
+   <option value="Prev">Search Within Previous Search Results</option>
+   <option value="All">Search in All Items (e.g. for merge results into prev search results)</option>
+</select>
+
+<hr>
+Revert Search Results at End:
+<input type="checkbox" [(ngModel)]="form.revertResultsAtEnd">
+<div class="hint">
+   // If checked, all the searched items will be replaced by those that were not searched.
+</div>
+
+<hr>
+<button class="submit" (click)="search()">Search</button>

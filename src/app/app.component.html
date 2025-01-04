@@ -1,9 +1,39 @@
 <h3>Sorry, this demo is still incomplete, will be completed soon</h3>
 
-<app-search [tablor]="tablor"></app-search>
+<details>
+   <summary>Search By String Query</summary>
+   <app-search-by-string-query [tablor]="tablor"></app-search-by-string-query>
+</details>
+
+<details>
+   <summary>Search By Date Ranges</summary>
+   <app-search-by-date-ranges [tablor]="tablor"></app-search-by-date-ranges>
+</details>
+
+<details>
+   <summary>Search By Number Ranges</summary>
+   <app-search-by-number-ranges [tablor]="tablor"></app-search-by-number-ranges>
+</details>
+
+<details>
+   <summary>Search By Exact Values</summary>
+   <app-search-by-exact-values [tablor]="tablor"></app-search-by-exact-values>
+</details>
+
+<details>
+   <summary>Search By Custom Search Fn</summary>
+   <app-search-by-custom-fn [tablor]="tablor"></app-search-by-custom-fn>
+</details>
+
+<details>
+   <summary>Search By Void</summary>
+   <app-search-by-void [tablor]="tablor"></app-search-by-void>
+</details>
+
+<app-searched-options [tablor]="tablor"></app-searched-options>
 
 <br>
-<button (click)="tablor.clearSorting()">
+<button (click)="tablor.clearSorting()" class="submit">
    Clear All Sorting
 </button>
 
@@ -18,39 +48,41 @@
 
 <app-paginator [tablor]="tablor"></app-paginator>
 
-<table>
-   <thead>
-      <tr>
-         @for (field of tablor.getFieldsAsArray(); track field.key) {
-            <th>
-               @if (tablor.isFieldSorted(field.key)) {
-                  {{ tablor.getSortingFieldOrder(field.key) }}
-               }
-            </th>
-         }
-      </tr>
-      <tr>
-         @for (field of tablor.getFieldsAsArray(); track field.key) {
-            <th
-               (click)="
-                  tablor.sort({ field: field.key, order: 'Toggle', supportedToggleOrders: ['ASC',  'DESC', 'NONE'] })
-               "
-            >
-               {{ field.title }}
-            </th>
-         }
-      </tr>
-   </thead>
-
-   <tbody>
-      @for (item of tablor.getPaginatedItems(); track item) {
+<div>
+   <table>
+      <thead>
          <tr>
             @for (field of tablor.getFieldsAsArray(); track field.key) {
-               <td>
-                  <div>{{ item[field.key] }}</div>
-               </td>
+               <th>
+                  @if (tablor.isFieldSorted(field.key)) {
+                     {{ tablor.getSortingFieldOrder(field.key) }}
+                  }
+               </th>
             }
          </tr>
-      }
-   </tbody>
-</table>
+         <tr>
+            @for (field of tablor.getFieldsAsArray(); track field.key) {
+               <th
+                  (click)="
+                  tablor.sort({ field: field.key, order: 'Toggle', supportedToggleOrders: ['ASC',  'DESC', 'NONE'] })
+               "
+               >
+                  {{ field.title }}
+               </th>
+            }
+         </tr>
+      </thead>
+
+      <tbody>
+         @for (item of tablor.getPaginatedItems(); track item) {
+            <tr>
+               @for (field of tablor.getFieldsAsArray(); track field.key) {
+                  <td>
+                     <div>{{ item[field.key] }}</div>
+                  </td>
+               }
+            </tr>
+         }
+      </tbody>
+   </table>
+</div>

@@ -1,32 +1,47 @@
 import { Component } from '@angular/core'
 
-import { TablorCore, TablorCoreTypes } from 'tablor-core-beta'
-
-import { Transaction, transactionFields } from './transactions_config'
-import { transactions } from './transactions_dataset'
-import { SearchComponent } from './search/search.component'
 import { PaginatorComponent } from './paginator/paginator.component'
+
+import { Transaction, transactionFields } from '../dataset/transactions-type'
+import { transactionsDataset } from '../dataset/transactions-dataset'
+
+import { TablorCore } from 'tablor-core-beta'
+import { SearchByDateRangesComponent } from './search/search-by-date-range/search-by-date-ranges.component'
+import { FormsModule } from '@angular/forms'
+import { SearchedOptionsComponent } from './search/searched-options/searched-options.component'
+import { SearchByStringQueryComponent } from './search/search-by-string-query/search-by-string-query.component'
+import { SearchByNumberRangesComponent } from './search/search-by-number-ranges/search-by-number-ranges.component'
+import { SearchByVoidComponent } from './search/search-by-void/search-by-void.component'
+import { SearchByExactValuesComponent } from './search/search-by-exact-values/search-by-exact-values.component'
+import { SearchByCustomFnComponent } from './search/search-by-custom-fn/search-by-custom-fn.component'
 
 
 @Component({
     selector: 'app-root',
     imports: [
-        SearchComponent,
         PaginatorComponent,
+        SearchByDateRangesComponent,
+        FormsModule,
+        SearchedOptionsComponent,
+        SearchByStringQueryComponent,
+        SearchByNumberRangesComponent,
+        SearchByVoidComponent,
+        SearchByExactValuesComponent,
+        SearchByCustomFnComponent,
     ],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
 })
 export class AppComponent
 {
-    title = 'tablor-core-beta-demo'
+    tablor: TablorCore<Transaction>
 
-    tablor = new TablorCore<Transaction>()
+    currentSearchType: string = 'stringSearch'
 
 
     constructor()
     {
+        this.tablor = new TablorCore()
         this.tablor.initializeFields(transactionFields)
-        this.tablor.initializeItems(transactions)
+        this.tablor.initializeItems(transactionsDataset)
     }
 }

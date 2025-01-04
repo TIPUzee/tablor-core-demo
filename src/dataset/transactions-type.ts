@@ -4,9 +4,10 @@ export type Transaction = {
     transactionId: number;
     user: string;
     bank: string;
-    transactionDate: string;
-    createdAt: string;
-    updatedAt: string;
+    description: string,
+    transactionDate: Date;
+    createdAt: Date;
+    updatedAt: Date;
     amount: number;
     currency: string;
     transactionType: 'Credit' | 'Debit';
@@ -23,6 +24,7 @@ export const transactionFields: TcT<Transaction>['RegularFields'] = {
     transactionId: { title: 'Transaction ID' },
     user: { title: 'User' },
     bank: { title: 'Bank' },
+    description: { title: 'Description' },
     transactionDate: { title: 'Transaction Date' },
     createdAt: { title: 'Created At' },
     updatedAt: { title: 'Updated At' },
