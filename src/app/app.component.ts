@@ -26,6 +26,7 @@ import { transactionsDataset } from '../dataset/transactions-dataset'
 import { TablorCore } from 'tablor-core-beta'
 import { SelectedItemsComponent } from './select/selected-items/selected-items.component'
 import { SelectComponent } from './select/select/select.component'
+import { FeaturesBoardComponent } from './features-board/features-board.component'
 
 
 @Component({
@@ -44,6 +45,7 @@ import { SelectComponent } from './select/select/select.component'
         SortedOptionsComponent,
         SelectedItemsComponent,
         SelectComponent,
+        FeaturesBoardComponent,
     ],
     templateUrl: './app.component.html',
 })

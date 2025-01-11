@@ -5,10 +5,6 @@
    user-select: none;
 }
 
-h3 {
-   color: #e00000;
-}
-
 body {
    padding: 0.8rem 0.8rem 4rem;
 }
@@ -49,6 +45,10 @@ button.submit {
 summary, select, button {
    cursor: pointer;
 }
+
+//
+// App Root
+//
 
 app-root > div {
    &:has(> table) {
@@ -193,4 +193,25 @@ app-searched-options details {
 
 app-selected-items details span {
    padding-inline: 0.4rem;
+}
+
+//
+// Features Board
+//
+
+app-features-board {
+   display: block;
+   padding: 0.8rem;
+   border-radius: 0.3rem;
+   background-color: #f1f1f1;
+   box-shadow: 0 1px 10px rgb(66, 66, 66);
+   margin-block: 0.5rem 1rem;
+
+   ul {
+      margin-bottom: 0.5rem;
+
+      li {
+         margin-left: 1rem;
+      }
+   }
 }
