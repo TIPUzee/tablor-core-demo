@@ -1,0 +1,40 @@
+Selected Items - Total {{ tablor.getNbOfSelectedItems() }} Items
+
+<hr>
+
+<div>
+   @if (tablor.getNbOfSelectedItems() > 0) {
+      <details>
+         <summary>Click to Show Selected Tablor Uuids</summary>
+         <span>[</span>
+         @for (selectedUuid of tablor.getSelectedItemUuids(); track selectedUuid) {
+            <span>{{ selectedUuid }}</span>
+         }
+         <span>]</span>
+      </details>
+   }
+
+   @if (tablor.getNbOfSelectedItems() === 0) {
+      No Item Selected
+   }
+</div>
+
+<hr>
+
+<span>
+   Nb Of Selected Items:
+   {{ tablor.getNbOfSelectedItems() }}
+</span>
+
+<hr>
+
+<span>
+   Nb of Selected Paginated Items:
+   {{ tablor.getNbOfSelectedPaginatedItems() }}
+</span>
+
+<hr>
+
+<button (click)="tablor.selectItems(tablor.getSelectedItemUuids(), false)" class="submit">
+   Deselect All Items
+</button>

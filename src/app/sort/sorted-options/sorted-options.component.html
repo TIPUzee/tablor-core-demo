@@ -1,0 +1,18 @@
+Sorting Options - Total {{ tablor.getSortingOptions().length }} Options
+
+<div>
+   @for (sort of tablor.getSortingOptions(); track sort; let i = $index) {
+      <details>
+         <summary>Click to Show Sorting Options - {{ i }}</summary>
+         <pre>{{ sort | json }}</pre>
+      </details>
+   }
+
+   @if (tablor.getSortingOptions().length === 0) {
+      No Sorting Performed
+   }
+</div>
+
+<button (click)="tablor.clearSorting()" class="submit">
+   Clear All Sorting
+</button>

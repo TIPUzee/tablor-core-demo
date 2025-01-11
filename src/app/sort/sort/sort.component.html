@@ -1,0 +1,128 @@
+Select Field to Sort:
+<select [(ngModel)]="form.field">
+   @for (field of tablor.getFieldsAsArray(); track field.key) {
+      <option [value]="field.key">{{ field.title }}</option>
+   }
+</select>
+
+<hr>
+Select Order:
+<select [(ngModel)]="form.order">
+   <option value="ASC">ASC</option>
+   <option value="DESC">DESC</option>
+   <option value="ORIGINAL">ORIGINAL</option>
+   <option value="NONE">NONE</option>
+   <option value="Toggle">Toggle</option>
+</select>
+
+@if (form.order === 'Toggle') {
+   <hr>
+   Select New Supported Toggle Orders:
+   <select #toggleOrder>
+      <option value="ASC">ASC</option>
+      <option value="DESC">DESC</option>
+      <option value="ORIGINAL">ORIGINAL</option>
+      <option value="NONE">NONE</option>
+   </select>
+
+   <button (click)="addSupportedToggleOrder(toggleOrder.value)">Add</button>
+
+   <hr>
+   Supported Toggle Orders:
+   <div>
+      @for (order of form.supportedToggleOrders; track order; let i = $index) {
+         {{ order }}
+         <button (click)="removeSupportedToggleOrder(i)">Remove</button>
+      }
+   </div>
+
+   <hr>
+   Select Toggle Order Index:
+   <select [(ngModel)]="toggleOrderIndexStrategy">
+      <option value="MANUAL">Manual</option>
+      <option value="AUTO">Auto</option>
+   </select>
+
+   @if (toggleOrderIndexStrategy === 'MANUAL') {
+      <hr>
+      Try to Start Toggling At:
+      <input type="number" [(ngModel)]="form.toggleOrderIndex" placeholder="Index of target order">
+   }
+}
+
+<hr>
+If field value is String; Case Sensitive:
+<input
+   (ngModelChange)="form.stringOptions ? form.stringOptions.caseSensitive = $event : null"
+   [ngModel]="form.stringOptions?.caseSensitive"
+   type="checkbox"
+>
+
+<hr>
+If field value is String; Ignore Whitespace:
+<input
+   (ngModelChange)="form.stringOptions ? form.stringOptions.ignoreWhitespaces = $event : null"
+   [ngModel]="form.stringOptions?.ignoreWhitespaces"
+   type="checkbox"
+>
+
+<hr>
+If field value is Number; Ignore Decimal Points:
+<input
+   (ngModelChange)="form.numberOptions ? form.numberOptions.ignoreDecimals = $event : null"
+   [ngModel]="form.numberOptions?.ignoreDecimals"
+   type="checkbox"
+>
+
+<hr>
+Prioritize Nulls:
+<select [(ngModel)]="form.prioritizeNulls">
+   <option value="FirstOnASC">First on ASC, Last on DESC</option>
+   <option value="LastOnASC">Last on ASC, First on DESC</option>
+   <option value="AlwaysFirst">Always First</option>
+   <option value="AlwaysLast">Always Last</option>
+</select>
+
+<hr>
+Prioritize Undefineds:
+<select [(ngModel)]="form.prioritizeUndefineds">
+   <option value="FirstOnASC">First on ASC, Last on DESC</option>
+   <option value="LastOnASC">Last on ASC, First on DESC</option>
+   <option value="AlwaysFirst">Always First</option>
+   <option value="AlwaysLast">Always Last</option>
+</select>
+
+<hr>
+Insert Behavior:
+<select [(ngModel)]="toggleOrderIndexStrategy">
+   <option value="MANUAL">Manual</option>
+   <option value="AUTO">Auto (index of target sorting field if previously sorted)</option>
+</select>
+
+@if (toggleOrderIndexStrategy === 'MANUAL') {
+   <hr>
+   Insert Position:
+   <input
+      [ngModel]="form.insertBehavior?.insertAt"
+      (ngModelChange)="form.insertBehavior ? form.insertBehavior.insertAt = $event : null"
+      placeholder="Index to Insert At"
+      type="number"
+   >
+
+   <hr>
+   Clear Behavior:
+   <select
+      [ngModel]="form.clear?.target"
+      (ngModelChange)="form.clear ? form.clear.target = $event : null"
+   >
+      <option value="InsertPosition">Clear Insert Position Previous Option</option>
+      <option value="AllParents">All Parents Options from Insert Position</option>
+      <option value="AllNested">All Nested Options from Insert Position</option>
+      <option value="All">Clear All</option>
+      <option value="None">Don't Clear Any Option</option>
+   </select>
+}
+
+
+<hr>
+<button (click)="sort()" class="submit">Sort</button>

@@ -7,16 +7,11 @@ import { TablorCore } from 'tablor-core-beta'
 
 
 @Component({
-    selector: 'app-paginator',
-    imports: [
-        FormsModule,
-    ],
-    templateUrl: './paginator.component.html',
+    selector: 'app-pagination',
+    imports: [FormsModule],
+    templateUrl: './pagination.component.html',
 })
-export class PaginatorComponent
+export class PaginationComponent
 {
-
     @Input({ required: true }) tablor!: TablorCore<Transaction>
-
-    currPageNb: number = 1
 }

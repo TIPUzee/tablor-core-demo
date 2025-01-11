@@ -1,0 +1,29 @@
+Paginated Items:
+
+<button
+   (click)="tablor.selectItems(tablor.getPaginatedItems(), true)"
+>
+   Select All
+</button>
+
+<button
+   (click)="tablor.selectItems(tablor.getPaginatedItems(), false)"
+>
+   Deselect All
+</button>
+
+<button
+   (click)="tablor.selectItems(tablor.getPaginatedItems(), 'toggle')"
+>
+   Toggle All
+</button>
+
+<hr>
+
+Selected Items:
+
+<button
+   (click)="tablor.selectItems(tablor.getPaginatedItems(), false)"
+>
+   Deselect All
+</button>

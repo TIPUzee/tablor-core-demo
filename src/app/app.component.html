@@ -1,57 +1,76 @@
 <h3>Sorry, this demo is still incomplete, will be completed soon</h3>
 
 <details>
-   <summary>Search By String Query</summary>
+   <summary>Searching By String Query</summary>
    <app-search-by-string-query [tablor]="tablor"></app-search-by-string-query>
 </details>
 
 <details>
-   <summary>Search By Date Ranges</summary>
+   <summary>Searching By Date Ranges</summary>
    <app-search-by-date-ranges [tablor]="tablor"></app-search-by-date-ranges>
 </details>
 
 <details>
-   <summary>Search By Number Ranges</summary>
+   <summary>Searching By Number Ranges</summary>
    <app-search-by-number-ranges [tablor]="tablor"></app-search-by-number-ranges>
 </details>
 
 <details>
-   <summary>Search By Exact Values</summary>
+   <summary>Searching By Exact Values</summary>
    <app-search-by-exact-values [tablor]="tablor"></app-search-by-exact-values>
 </details>
 
 <details>
-   <summary>Search By Custom Search Fn</summary>
+   <summary>Searching By Custom Search Fn</summary>
    <app-search-by-custom-fn [tablor]="tablor"></app-search-by-custom-fn>
 </details>
 
 <details>
-   <summary>Search By Void</summary>
+   <summary>Searching By Void</summary>
    <app-search-by-void [tablor]="tablor"></app-search-by-void>
 </details>
 
 <app-searched-options [tablor]="tablor"></app-searched-options>
 
 <br>
-<button (click)="tablor.clearSorting()" class="submit">
-   Clear All Sorting
-</button>
 
-<div class="hint">
-   <span class="hint-title">Nested Sorting Feature Hint:</span>
-   Click on 'User' field and then click on 'Bank' field
-   <br>
-   Items will be first sorted by 'User' field and then nested by 'Bank' field.
-</div>
+<details>
+   <summary>Sorting</summary>
+   <app-sort [tablor]="tablor"></app-sort>
+</details>
+
+<app-sorted-options [tablor]="tablor"></app-sorted-options>
+
+<!-- <div class="hint"> -->
+<!--    <span class="hint-title">Nested Sorting Feature Hint:</span> -->
+<!--    Click on 'User' field and then click on 'Bank' field -->
+<!--    <br> -->
+<!--    Items will be first sorted by 'User' field and then nested by 'Bank' field. -->
+<!-- </div> -->
 
 <br>
 
-<app-paginator [tablor]="tablor"></app-paginator>
+<details>
+   <summary>Selection</summary>
+   <app-select [tablor]="tablor"></app-select>
+</details>
+
+<app-selected-items [tablor]="tablor"></app-selected-items>
+
+<br>
+
+<details>
+   <summary>Pagination</summary>
+   <app-pagination [tablor]="tablor"></app-pagination>
+</details>
+
+<br>
 
 <div>
    <table>
       <thead>
          <tr>
+            <th></th>
             @for (field of tablor.getFieldsAsArray(); track field.key) {
                <th>
                   @if (tablor.isFieldSorted(field.key)) {
@@ -61,11 +80,10 @@
             }
          </tr>
          <tr>
+            <th></th>
             @for (field of tablor.getFieldsAsArray(); track field.key) {
                <th
-                  (click)="
-                  tablor.sort({ field: field.key, order: 'Toggle', supportedToggleOrders: ['ASC',  'DESC', 'NONE'] })
-               "
+                  (click)="sort(field.key)"
                >
                   {{ field.title }}
                </th>
@@ -76,6 +94,14 @@
       <tbody>
          @for (item of tablor.getPaginatedItems(); track item) {
             <tr>
+               <td>
+                  <div>
+                     <input
+                        type="checkbox" [ngModel]="item.tablorMeta.isSelected"
+                        (ngModelChange)="tablor.selectItem(item.tablorMeta.uuid, 'toggle')"
+                     >
+                  </div>
+               </td>
                @for (field of tablor.getFieldsAsArray(); track field.key) {
                   <td>
                      <div>{{ item[field.key] }}</div>

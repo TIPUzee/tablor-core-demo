@@ -1,22 +1,18 @@
-Searched Options
+Searched Options - Total {{ tablor.getSearchOptions().length }} Options
 
-<table>
+<div>
    @for (search of tablor.getSearchOptions(); track search; let i = $index) {
-      <tr>
-         <td>
-            <details>
-               <summary>Click to Show Search Options - {{ i }}</summary>
-               <pre>{{ search | json }}</pre>
-            </details>
-         </td>
-      </tr>
+      <details>
+         <summary>Click to Show Search Options - {{ i }}</summary>
+         <pre>{{ search | json }}</pre>
+      </details>
    }
 
    @if (tablor.getSearchOptions().length === 0) {
       No Search Performed
    }
-</table>
+</div>
 
-<button class="submit" (click)="tablor.clearSearch()">
+<button (click)="tablor.clearSearch()" class="submit">
    Clear All Searches
 </button>
