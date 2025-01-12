@@ -23,7 +23,7 @@ import { Transaction, transactionFields } from '../dataset/transactions-type'
 import { transactionsDataset } from '../dataset/transactions-dataset'
 
 // The `TablorCore` Library
-import { TablorCore } from 'tablor-core-beta'
+import { TablorCore } from 'tablor-core'
 import { SelectedItemsComponent } from './select/selected-items/selected-items.component'
 import { SelectComponent } from './select/select/select.component'
 import { FeaturesBoardComponent } from './features-board/features-board.component'

@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms'
 
 import { Transaction } from '../../../dataset/transactions-type'
 
-import { TablorCore, TablorCoreTypes as TcT } from 'tablor-core-beta'
+import { TablorCore, TablorCoreTypes as TcT } from 'tablor-core'
 import { format } from 'date-fns'
 
 

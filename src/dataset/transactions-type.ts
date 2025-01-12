@@ -1,4 +1,4 @@
-import { TablorCoreTypes as TcT } from 'tablor-core-beta'
+import { TablorCoreTypes as TcT } from 'tablor-core'
 
 export type Transaction = {
     transactionId: number;

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 
 import { Transaction } from '../../../dataset/transactions-type'
 
-import { TablorCore } from 'tablor-core-beta'
+import { TablorCore } from 'tablor-core'
 
 
 @Component({
