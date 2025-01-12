@@ -1,59 +1,100 @@
-# TablorCoreDemo
+# Tablor Core - Try It Yourself 🌟
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+**Create beautiful datatables, grid views, and more effortlessly with Tablor-Core!**  
+Leverage powerful features already implemented—you just need to focus on your UI.
 
-## Development server
+--- 
 
-To start a local development server, run:
+## Demo
 
-```bash
-ng serve
-```
+- Fully functioning preview with pre-built UI:  
+  **👉 [Sample Preview](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/beta/simple?file=src%2Fapp%2Fapp.component.ts)**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Minimal setup with dataset for your own implementation:  
+  **👉 [Try It Yourself](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/master?file=src%2Fapp%2Fapp.component.ts)**
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Installation
 
 ```bash
-ng generate --help
+npm install tablor-core
 ```
 
-## Building
+---
 
-To build the project run:
+## 🚀 Features at a Glance
 
-```bash
-ng build
-```
+### Sorting
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Basic Sorting**
+- **Custom Sorting Toggle Orders**
+- **Multi-Field Sorting**
+    - Example: Sort transactions by **bank names**, then **nested sort by transaction date**.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 🔍 Search
 
-```bash
-ng test
-```
+- **Search Within Previous Results**
+- **Merge Results into Previous Searches**
+- **Field-Specific Search Criteria**
 
-## Running end-to-end tests
+#### **Search By String Query**
 
-For end-to-end (e2e) testing, run:
+- Include specific fields.
+- Custom functions for converting numbers, dates, booleans, nulls, and undefined values to searchable strings.
+- Word matching with:
+    - **StartsWith**, **EndsWith**, **Contains**, **ExactMatch**
+    - Search words **in order** or **any order**.
+    - Search **consecutive** or **non-consecutive** words.
 
-```bash
-ng e2e
-```
+#### **Advanced Search Capabilities**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Search by **date ranges** (multiple ranges for multiple fields).
+- Search by **number ranges** (multiple ranges for multiple fields).
+- Search by **exact values** (multiple values for multiple fields).
+- Use **custom search functions**.
+- **Revert Search Results**: Replace searched items with those not searched.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 📖 Pagination
+
+- Navigate pages with ease:
+    - **Go To Page**
+    - **Set Items Per Page**
+    - Display **all items** on a single page.
+
+---
+
+### 🗂️ Item Selection
+
+- Select and retrieve items with flexibility:
+    - Get **selected items**.
+    - Get items **within the page** or **outside the page**.
+
+---
+
+### ⚡ Event-Based System
+
+- Fully event-driven for seamless integration:
+    - Events for **page changes**, **sorting updates**, **search criteria changes**, **item selection changes**, **deletions**, and more.
+
+---
+
+## 💡 Why Choose Tablor-Core?
+
+Tablor-Core offers an extensive toolkit for building interactive and dynamic datatables with minimal effort. Whether you're creating grid views or advanced data management UIs, Tablor-Core has you covered.
+
+---
+
+🔗 **Start Building with Tablor-Core Today!**
+
+--- 
+
+## 📄 License
+
+This project is licensed under the **Apache-2.0 License**.
+
+Copyright 2025 [TIPUzee](https://github.com/TIPUzee).

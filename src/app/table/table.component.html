@@ -1,0 +1,21 @@
+<p [innerText]="'<Table>💫</Table>'"></p>
+
+<table>
+   <thead>
+      <tr>
+         @for (field of tablor.getFieldsAsArray(); track field.key) {
+            <th>{{ field.title }}</th>
+         }
+      </tr>
+   </thead>
+
+   <tbody>
+      @for (item of tablor.getPaginatedItems(); track item.tablorMeta.uuid) {
+         <tr>
+            @for (field of tablor.getFieldsAsArray(); track field.key) {
+               <td>{{ item[field.key] }}</td>
+            }
+         </tr>
+      }
+   </tbody>
+</table>
