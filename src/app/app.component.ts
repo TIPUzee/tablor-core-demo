@@ -1,51 +1,78 @@
 // Angular modules
 import { Component } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-
-// App Components - Search
-import { SearchByStringQueryComponent } from './search/search-by-string-query/search-by-string-query.component'
-import { SearchByDateRangesComponent } from './search/search-by-date-range/search-by-date-ranges.component'
-import { SearchByNumberRangesComponent } from './search/search-by-number-ranges/search-by-number-ranges.component'
-import { SearchByExactValuesComponent } from './search/search-by-exact-values/search-by-exact-values.component'
-import { SearchByVoidComponent } from './search/search-by-void/search-by-void.component'
-import { SearchByCustomFnComponent } from './search/search-by-custom-fn/search-by-custom-fn.component'
-import { SearchedOptionsComponent } from './search/searched-options/searched-options.component'
-
-// App Components - Sort
-import { SortComponent } from './sort/sort/sort.component'
-import { SortedOptionsComponent } from './sort/sorted-options/sorted-options.component'
-
-// App Components - Pagination
-import { PaginationComponent } from './pagination/pagination.component'
-
-// App Components - Dataset
+// Ng Icons
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { lucideChevronDown, lucideChevronUp } from '@ng-icons/lucide'
+// Spartan UI
+import { BrnSelectImports } from '@spartan-ng/brain/select'
+import { HlmSelectImports } from '@spartan-ng/ui-select-helm'
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm'
+import { BrnMenuTriggerDirective } from '@spartan-ng/brain/menu'
+import {
+    HlmMenuComponent,
+    HlmMenuGroupComponent,
+    HlmMenuItemDirective,
+    HlmMenuItemIconDirective,
+    HlmMenuItemSubIndicatorComponent,
+    HlmMenuLabelComponent,
+    HlmMenuSeparatorComponent,
+    HlmMenuShortcutComponent,
+    HlmSubMenuComponent,
+} from '@spartan-ng/ui-menu-helm'
+import { NgScrollbarModule } from 'ngx-scrollbar'
+import { HlmScrollAreaDirective } from '@spartan-ng/ui-scrollarea-helm'
+import { HlmCheckboxCheckIconComponent, HlmCheckboxComponent } from '@spartan-ng/ui-checkbox-helm'
+// Dataset
 import { Transaction, transactionFields } from '../dataset/transactions-type'
 import { transactionsDataset } from '../dataset/transactions-dataset'
-
 // The `TablorCore` Library
 import { TablorCore } from 'tablor-core'
-import { SelectedItemsComponent } from './select/selected-items/selected-items.component'
-import { SelectComponent } from './select/select/select.component'
-import { FeaturesBoardComponent } from './features-board/features-board.component'
+// App Components
+import { DatePipe, NgClass } from '@angular/common'
+import { SelectedItemActionsComponent } from './selected-item-actions/selected-item-actions.component'
+import { PaginationComponent } from './pagination/pagination.component'
+import { SortingComponent } from './sorting/sorting.component'
+import { SearchComponent } from './searching/search.component'
 
 
 @Component({
     selector: 'app-root',
     imports: [
-        PaginationComponent,
-        SearchByDateRangesComponent,
+        // Angular
         FormsModule,
-        SearchedOptionsComponent,
-        SearchByStringQueryComponent,
-        SearchByNumberRangesComponent,
-        SearchByVoidComponent,
-        SearchByExactValuesComponent,
-        SearchByCustomFnComponent,
-        SortComponent,
-        SortedOptionsComponent,
-        SelectedItemsComponent,
-        SelectComponent,
-        FeaturesBoardComponent,
+        NgIcon,
+        NgClass,
+        DatePipe,
+        // Spartan UI
+        NgScrollbarModule,
+        BrnSelectImports,
+        HlmSelectImports,
+        HlmMenuComponent,
+        HlmMenuGroupComponent,
+        HlmMenuItemSubIndicatorComponent,
+        HlmMenuLabelComponent,
+        HlmMenuSeparatorComponent,
+        HlmMenuShortcutComponent,
+        HlmSubMenuComponent,
+        HlmCheckboxCheckIconComponent,
+        HlmCheckboxComponent,
+        HlmButtonDirective,
+        BrnMenuTriggerDirective,
+        HlmMenuItemIconDirective,
+        HlmMenuItemDirective,
+        HlmScrollAreaDirective,
+        // App
+        SelectedItemActionsComponent,
+        PaginationComponent,
+        SortingComponent,
+        SearchComponent,
+    ],
+    providers: [
+        provideIcons({
+            lucideChevronDown,
+            lucideChevronUp,
+        }),
     ],
     templateUrl: './app.component.html',
 })
@@ -59,15 +86,7 @@ export class AppComponent
         this.tablor = new TablorCore()
         this.tablor.initializeFields(transactionFields)
         this.tablor.initializeItems(transactionsDataset)
-    }
 
-
-    sort(fieldKey: keyof Transaction)
-    {
-        this.tablor.sort({
-            field: fieldKey,
-            order: 'Toggle',
-            supportedToggleOrders: ['ASC', 'DESC', 'NONE'],
-        })
+        this.tablor.setNbOfItemsPerPage(20)
     }
 }

@@ -1,49 +1,70 @@
-<span>
-   Current Page Number:
+<div class="pagination">
+   <div class="selected-items-info">
+      {{ tablor.getNbOfSelectedItems() }}
+      of {{ tablor.getNbOfItems() / 1000 }}k
+      transaction(s) selected
+   </div>
 
-   <input
-      (ngModelChange)="tablor.setPageNb($event)"
-      [ngModel]="tablor.getPageNb()"
-      placeholder="Page Number"
-      type="number"
-   >
-   <button
-      (click)="tablor.setPageNb(tablor.getPageNb() - 1)"
-   >
-      Prev Page
-   </button>
-   <button
-      (click)="tablor.setPageNb(tablor.getPageNb() + 1)"
-   >
-      Next Page
-   </button>
-</span>
+   <div class="paging-actions">
+      <brn-select
+         (ngModelChange)="tablor.setNbOfItemsPerPage($event)"
+         [ngModel]="tablor.getNbOfItemsPerPage()"
+         class="inline-block"
+      >
+         <hlm-select-trigger class="w-20">
+            <hlm-select-value/>
+         </hlm-select-trigger>
+         <hlm-select-content>
+            <hlm-option [value]="10">10</hlm-option>
+            <hlm-option [value]="20">20</hlm-option>
+            <hlm-option [value]="100">100</hlm-option>
+            <hlm-option [value]="-1">All</hlm-option>
+         </hlm-select-content>
+      </brn-select>
+      <button
+         (click)="tablor.setPageNb(tablor.getPageNb() - 1)"
+         [disabled]="tablor.getPageNb() === 1"
+         hlmBtn
+      >
+         Previous
+      </button>
+      <div class="page-info">
+         Page {{ tablor.getPageNb() }}
+         of {{ tablor.getNbOfPages() }}
+      </div>
+      <button
+         (click)="tablor.setPageNb(tablor.getPageNb() + 1)"
+         [disabled]="tablor.getPageNb() === tablor.getNbOfPages()"
+         hlmBtn
+      >
+         Next
+      </button>
 
-<hr>
+      <!-- First & Last Buttons Dropdown -->
+      <button [brnMenuTriggerFor]="menu">
+         <ng-icon hlm hlmMenuIcon name="lucideChevronDown" class=""/>
+      </button>
 
-<span>
-   Items per Page:
+      <ng-template #menu>
+         <hlm-menu>
+            <button
+               (click)="tablor.setPageNb(1)"
+               [disabled]="tablor.getPageNb() === 1"
+               hlmMenuItem
+            >
+               First page
+            </button>
 
-   <button (click)="tablor.setNbOfItemsPerPage(-1)">Set -1</button>
-   <button (click)="tablor.setNbOfItemsPerPage(10)">Set 10</button>
-   <button (click)="tablor.setNbOfItemsPerPage(20)">Set 20</button>
-   <button (click)="tablor.setNbOfItemsPerPage(100)">Set 100</button>
-   <input
-      (ngModelChange)="tablor.setNbOfItemsPerPage($event)"
-      [ngModel]="tablor.getNbOfItemsPerPage()"
-      placeholder="Items per Page"
-      type="number"
-   >
-</span>
+            <button
+               (click)="tablor.setPageNb(tablor.getNbOfPages())"
+               [disabled]="tablor.getPageNb() === tablor.getNbOfPages()"
+               hlmMenuItem
+            >
+               Last page
+            </button>
+         </hlm-menu>
+      </ng-template>
+      <!-- First & Last Buttons Dropdown -->
 
-<hr>
-
-Searched Items: {{ tablor.getNbOfSearchedItems() }}
-
-<hr>
-
-Total Items: {{ tablor.getNbOfItems() }}
-
-<hr>
-
-Current Page Size: {{ tablor.getPageSize() }}
+   </div>
+</div>

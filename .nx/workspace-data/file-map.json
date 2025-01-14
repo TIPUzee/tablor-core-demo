@@ -1,0 +1,356 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.3.1",
+  "pathMappings": {
+    "@spartan-ng/ui-button-helm": [
+      ".\\libs/ui/ui-button-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-input-helm": [
+      ".\\libs/ui/ui-input-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-formfield-helm": [
+      ".\\libs/ui/ui-formfield-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-table-helm": [
+      ".\\libs/ui/ui-table-helm/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "tablor-core-demo": [
+        {
+          "file": ".codesandbox/tasks.json",
+          "hash": "12485228395671079051"
+        },
+        {
+          "file": ".editorconfig",
+          "hash": "8037249353422744134"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "10175894702052279752"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "11934160580685414355"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "17406702432687230417"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "10093397977228577162"
+        },
+        {
+          "file": "README.md",
+          "hash": "9974357085257094738"
+        },
+        {
+          "file": "README.md~",
+          "hash": "18142577253916763746"
+        },
+        {
+          "file": "angular.json",
+          "hash": "4345183198142492040"
+        },
+        {
+          "file": "angular.json~",
+          "hash": "14109253693463547905"
+        },
+        {
+          "file": "components.json",
+          "hash": "3089158842223537119"
+        },
+        {
+          "file": "libs/ui/ui-button-helm/src/index.ts",
+          "hash": "17251273102492170138"
+        },
+        {
+          "file": "libs/ui/ui-button-helm/src/lib/hlm-button.directive.ts",
+          "hash": "11068329498313394712"
+        },
+        {
+          "file": "libs/ui/ui-button-helm/src/lib/hlm-button.token.ts",
+          "hash": "7896754714560199098"
+        },
+        {
+          "file": "libs/ui/ui-formfield-helm/src/index.ts",
+          "hash": "1379682831294187538"
+        },
+        {
+          "file": "libs/ui/ui-formfield-helm/src/lib/form-field.spec.ts",
+          "hash": "9247239904589969713"
+        },
+        {
+          "file": "libs/ui/ui-formfield-helm/src/lib/hlm-error.directive.ts",
+          "hash": "8559813530759281347"
+        },
+        {
+          "file": "libs/ui/ui-formfield-helm/src/lib/hlm-form-field.component.ts",
+          "hash": "10263304905217156553"
+        },
+        {
+          "file": "libs/ui/ui-formfield-helm/src/lib/hlm-hint.directive.ts",
+          "hash": "6215421755390582281"
+        },
+        {
+          "file": "libs/ui/ui-input-helm/src/index.ts",
+          "hash": "487913567356772959"
+        },
+        {
+          "file": "libs/ui/ui-input-helm/src/lib/hlm-input-error.directive.ts",
+          "hash": "13040471592513364896"
+        },
+        {
+          "file": "libs/ui/ui-input-helm/src/lib/hlm-input.directive.ts",
+          "hash": "15323082726272975466"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/index.ts",
+          "hash": "10469680382427192649"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-caption.component.ts",
+          "hash": "10370974762586823577"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-table.component.ts",
+          "hash": "10160215943690243918"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-table.directive.ts",
+          "hash": "16926324896027948178"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-td.component.ts",
+          "hash": "16551373028475018739"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-th.component.ts",
+          "hash": "858649034127753457"
+        },
+        {
+          "file": "libs/ui/ui-table-helm/src/lib/hlm-trow.component.ts",
+          "hash": "17656523312901049612"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "16662744564250873497"
+        },
+        {
+          "file": "package.json",
+          "hash": "6835578570740933717",
+          "deps": [
+            "npm:@angular-devkit/build-angular",
+            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
+            "npm:@spartan-ng/cli",
+            "npm:@types/jasmine",
+            "npm:jasmine-core",
+            "npm:karma",
+            "npm:karma-chrome-launcher",
+            "npm:karma-coverage",
+            "npm:karma-jasmine",
+            "npm:karma-jasmine-html-reporter",
+            "npm:tailwind-merge",
+            "npm:tailwindcss",
+            "npm:tailwindcss-animate",
+            "npm:typescript",
+            "npm:@angular/animations",
+            "npm:@angular/cdk",
+            "npm:@angular/common",
+            "npm:@angular/compiler",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/platform-browser",
+            "npm:@angular/platform-browser-dynamic",
+            "npm:@angular/router",
+            "npm:@spartan-ng/brain",
+            "npm:class-variance-authority",
+            "npm:clsx",
+            "npm:date-fns",
+            "npm:rxjs",
+            "npm:tablor-core",
+            "npm:tslib",
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "package.json~",
+          "hash": "3739469761756673938"
+        },
+        {
+          "file": "public/favicon.ico",
+          "hash": "3988961587069885523"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "3227290732758728242"
+        },
+        {
+          "file": "src/app/app.component.html~",
+          "hash": "10382080494923905691"
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "8092619188261282810"
+        },
+        {
+          "file": "src/app/app.component.ts~",
+          "hash": "8200423600338016990"
+        },
+        {
+          "file": "src/app/dataset-to-use.ts~",
+          "hash": "15109843215652416141"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/container/container.component.html",
+          "hash": "9078796639949504211"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/container/container.component.html~",
+          "hash": "7433395657605159017"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/container/container.component.ts",
+          "hash": "6680569199768908249"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/container/container.component.ts~",
+          "hash": "17578560009591682779"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/spartan-tablor-datatable.component.html",
+          "hash": "7720227367823438708"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/spartan-tablor-datatable.component.html~",
+          "hash": "2023839278011703027"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/spartan-tablor-datatable.component.ts",
+          "hash": "17604301358992921625"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/spartan-tablor-datatable.component.ts~",
+          "hash": "16687171917009422413"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/string-search/string-search.component.html",
+          "hash": "15645418184833653412"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/string-search/string-search.component.html~",
+          "hash": "18247353734075803040"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/string-search/string-search.component.ts",
+          "hash": "1639681383012024280"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/string-search/string-search.component.ts~",
+          "hash": "11294563427148721235"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/datatable.component.html~",
+          "hash": "7133170178444126125"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/datatable.component.ts~",
+          "hash": "7290408093886528134"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/table.component.html",
+          "hash": "4687362100772795305"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/table.component.html~",
+          "hash": "11890914243051556806"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/table.component.ts",
+          "hash": "10777854313468895703"
+        },
+        {
+          "file": "src/app/spartan-tablor-datatable/table/table.component.ts~",
+          "hash": "14275473216209019822"
+        },
+        {
+          "file": "src/dataset/settings-type.ts~",
+          "hash": "14463209943120835325"
+        },
+        {
+          "file": "src/dataset/transactions-dataset.ts",
+          "hash": "13008180076780449762"
+        },
+        {
+          "file": "src/dataset/transactions-type.ts",
+          "hash": "12225703772607137740"
+        },
+        {
+          "file": "src/dataset/transactions-type.ts~",
+          "hash": "9381709424444496367"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "513329919313602353"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "6155185762965413569"
+        },
+        {
+          "file": "src/main.ts~",
+          "hash": "4169901790405087765"
+        },
+        {
+          "file": "src/styles.scss~",
+          "hash": "1257838022915821336"
+        },
+        {
+          "file": "src/styles/global.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/styles/global.scss~",
+          "hash": "12562721243894479685"
+        },
+        {
+          "file": "src/styles/tailwind.scss",
+          "hash": "11722117584184986272"
+        },
+        {
+          "file": "src/styles/tailwind.scss.sass~",
+          "hash": "12626353299226497144"
+        },
+        {
+          "file": "src/styles/tailwind.scss~",
+          "hash": "1124024714806772170"
+        },
+        {
+          "file": "tailwind.config.js",
+          "hash": "7593519177465062697"
+        },
+        {
+          "file": "tailwind.config.js~",
+          "hash": "3733910983490493734"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "14560978611694835822"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "17569923169803387114"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "11023685540591620072"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

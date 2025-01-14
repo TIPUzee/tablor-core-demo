@@ -1,107 +1,138 @@
-<app-features-board></app-features-board>
+<div class="p-10">
 
-<details>
-   <summary>Searching By String Query</summary>
-   <app-search-by-string-query [tablor]="tablor"></app-search-by-string-query>
-</details>
-
-<details>
-   <summary>Searching By Date Ranges</summary>
-   <app-search-by-date-ranges [tablor]="tablor"></app-search-by-date-ranges>
-</details>
-
-<details>
-   <summary>Searching By Number Ranges</summary>
-   <app-search-by-number-ranges [tablor]="tablor"></app-search-by-number-ranges>
-</details>
-
-<details>
-   <summary>Searching By Exact Values</summary>
-   <app-search-by-exact-values [tablor]="tablor"></app-search-by-exact-values>
-</details>
-
-<details>
-   <summary>Searching By Custom Search Fn</summary>
-   <app-search-by-custom-fn [tablor]="tablor"></app-search-by-custom-fn>
-</details>
-
-<details>
-   <summary>Searching By Void</summary>
-   <app-search-by-void [tablor]="tablor"></app-search-by-void>
-</details>
-
-<app-searched-options [tablor]="tablor"></app-searched-options>
-
-<br>
-
-<details>
-   <summary>Sorting</summary>
-   <app-sort [tablor]="tablor"></app-sort>
-</details>
-
-<app-sorted-options [tablor]="tablor"></app-sorted-options>
-
-<br>
-
-<details>
-   <summary>Selection</summary>
-   <app-select [tablor]="tablor"></app-select>
-</details>
-
-<app-selected-items [tablor]="tablor"></app-selected-items>
-
-<br>
-
-<details>
-   <summary>Pagination</summary>
-   <app-pagination [tablor]="tablor"></app-pagination>
-</details>
-
-<br>
-
-<div>
-   <table>
-      <thead>
-         <tr>
-            <th></th>
-            @for (field of tablor.getFieldsAsArray(); track field.key) {
-               <th>
-                  @if (tablor.isFieldSorted(field.key)) {
-                     {{ tablor.getSortingFieldOrder(field.key) }}
-                  }
-               </th>
-            }
-         </tr>
-         <tr>
-            <th></th>
-            @for (field of tablor.getFieldsAsArray(); track field.key) {
-               <th
-                  (click)="sort(field.key)"
-               >
-                  {{ field.title }}
-               </th>
-            }
-         </tr>
-      </thead>
-
-      <tbody>
-         @for (item of tablor.getPaginatedItems(); track item) {
-            <tr>
-               <td>
-                  <div>
-                     <input
-                        type="checkbox" [ngModel]="item.tablorMeta.isSelected"
-                        (ngModelChange)="tablor.selectItem(item.tablorMeta.uuid, 'toggle')"
-                     >
-                  </div>
-               </td>
-               @for (field of tablor.getFieldsAsArray(); track field.key) {
-                  <td>
-                     <div>{{ item[field.key] }}</div>
-                  </td>
-               }
-            </tr>
+   <div class="top-sticky-cards">
+      <div class="card card-col mt-5">
+         <app-searching [tablor]="tablor"></app-searching>
+         <app-pagination [tablor]="tablor"></app-pagination>
+         @if (tablor.getNbOfSelectedItems() > 0) {
+            <app-selected-item-actions [tablor]="tablor"></app-selected-item-actions>
          }
-      </tbody>
-   </table>
+      </div>
+   </div>
+
+   <app-sorting [tablor]="tablor"></app-sorting>
+
+   <div class="cards-container">
+      @for (item of tablor.getPaginatedItems(); track item.tablorMeta.uuid) {
+         <!-- Card -->
+         <div class="card">
+
+            <!-- User Section -->
+            <div class="section">
+               <div class="title">User</div>
+               <div class="username">{{ item.user }}</div>
+               <div class="bank">{{ item.bank }}</div>
+            </div>
+            <!-- User Section -->
+
+            <!-- Amount Section -->
+            <div class="section">
+               <div class="title">Amount</div>
+               <div class="amount">${{ item.amount }}</div>
+               <div
+                  class="transaction-type"
+                  [ngClass]="{ credit: item.transactionType === 'Credit', debit: item.transactionType === 'Debit' }"
+               >
+                  {{ item.transactionType }}
+               </div>
+            </div>
+            <!-- Amount Section -->
+
+            <!-- Status Section -->
+            <div class="section">
+               <div class="title">Status</div>
+               <div
+                  class="status"
+                  [ngClass]="item.status.toLowerCase()"
+               >
+                  {{ item.status }}
+               </div>
+            </div>
+            <!-- Status Section -->
+
+            <!-- Separator -->
+            <div class="separator">
+               <div class="line"></div>
+            </div>
+            <!-- Separator -->
+
+            <!-- Details Section -->
+            <div class="section">
+               <div class="title">Details</div>
+               <div class="description">
+                  {{ item.description }}
+               </div>
+               <div class="notes">
+                  <span class="title">Note:</span>
+                  <span
+                     [ngClass]="item.notes ? 'filled' : 'empty'"
+                  >
+                     {{ item.notes ? item.notes : 'N/A' }}
+                  </span>
+               </div>
+            </div>
+            <!-- Details Section -->
+
+            <!-- Date Section -->
+            <div class="section">
+               <div class="title">DATE</div>
+               <div class="created-at">
+                  <span class="title">Created At:</span>
+                  {{ item.createdAt | date: 'short' }}
+               </div>
+               <div class="updated-at">
+                  <span class="title">Updated At:</span>
+                  {{ item.updatedAt | date: 'short' }}
+               </div>
+               <div class="transaction-date">
+                  <span class="title">Transaction Date:</span>
+                  {{ item.transactionDate | date: 'short' }}
+               </div>
+            </div>
+            <!-- Date Section -->
+
+            <!-- Notes Section -->
+            <div class="section">
+               <div class="title">NOTES</div>
+               <div class="merchant">
+                  <span class="title">Merchant:</span>
+                  <span [ngClass]="!item.merchant ? 'empty' : ''">
+                     {{ item.merchant ? item.merchant : 'N/A' }}
+                  </span>
+               </div>
+               <div class="initiated-by">
+                  <span class="title">Initiated By:</span>
+                  <span [ngClass]="!item.initiatedBy ? 'empty' : ''">
+                     {{ item.initiatedBy ? item.initiatedBy : 'N/A' }}
+                  </span>
+               </div>
+               <div class="receipt-url">
+                  <span class="title">Receipt URL:</span>
+                  @if (!item.receiptUrl) {
+                     <span class="empty">N/A</span>
+                  } @else {
+                     <span class="link">
+                        <a href="{{ item.receiptUrl }}" target="_blank">
+                           {{ item.receiptUrl }}
+                        </a>
+                     </span>
+                  }
+               </div>
+            </div>
+            <!-- Notes Section -->
+
+            <!-- Checkbox -->
+            <div class="top-right-content">
+               <hlm-checkbox
+                  class="mr-2"
+                  [ngModel]="item.tablorMeta.isSelected"
+                  (ngModelChange)="tablor.selectItem(item.tablorMeta.uuid, 'toggle')"
+               ></hlm-checkbox>
+            </div>
+            <!-- Checkbox -->
+
+         </div>
+         <!-- Card -->
+      }
+   </div>
 </div>

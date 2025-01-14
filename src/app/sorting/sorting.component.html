@@ -1,0 +1,89 @@
+<div class="sorting mt-5">
+
+   <div></div>
+
+   <div class="flex">
+
+      <!-- Sorting Options Dropdown -->
+      <div>
+         <!-- Dropdown Trigger -->
+         <button
+            [brnMenuTriggerFor]="sortingFieldsSelectDropdown"
+            [class]="tablor.getSortingOptions(false).length > 0 ? 'py-2 h-[unset]' : ''"
+            hlmBtn
+            variant="outline"
+            class="flex flex-row gap-x-1 shadow-md"
+         >
+            @if (tablor.getSortingOptions(false).length > 0) {
+               Sort by:
+               <div class="flex gap-1">
+                  @for (option of tablor.getSortingOptions(false); track option) {
+                     <div>
+                        {{ tablor.getFields()[option.field]?.title }}
+                        <ng-icon
+                           hlm
+                           hlmMenuIcon
+                           [name]="tablor.getSortingFieldOrder(option.field) === 'ASC' ?
+                              'lucideChevronDown' : 'lucideChevronUp'"
+                           class="text-sm"
+                        />
+                     </div>
+                  }
+               </div>
+            } @else {
+               Sort
+            }
+         </button>
+         <!-- Dropdown Trigger -->
+
+         <!-- Dropdown Content -->
+         <ng-template #sortingFieldsSelectDropdown>
+            <hlm-menu>
+               <ng-scrollbar hlm class="h-52 w-48">
+                  @for (field of tablor.getFieldsAsArray(); track field.key) {
+                     <button
+                        class="px-2 py-1.5 text-sm w-full text-start"
+                        (click)="sort(field.key)"
+                     >
+                        <span>{{ field.title }}</span>
+
+                        @if (tablor.getSortingFieldKeys().includes(field.key) && tablor.getSortingFieldOrder(field.key) !== 'NONE') {
+                           <ng-icon
+                              hlm hlmMenuIcon
+                              [name]="tablor.getSortingFieldOrder(field.key) === 'ASC' ? 'lucideChevronDown' : 'lucideChevronUp'"
+                           />
+                        }
+
+                     </button>
+                  }
+               </ng-scrollbar>
+            </hlm-menu>
+         </ng-template>
+         <!-- Dropdown Content -->
+      </div>
+      <!-- Sorting Options Dropdown -->
+
+      <!-- Multiple Sorting Dropdown -->
+      <div class="flex items-center">
+         <!-- Dropdown Trigger -->
+         <button [brnMenuTriggerFor]="multipleFieldsSortingDropdown" class="px-2 mx-1">
+            <ng-icon hlm name="lucideChevronDown" size="sm"/>
+         </button>
+         <!-- Dropdown Trigger -->
+
+         <!-- Dropdown Content -->
+         <ng-template #multipleFieldsSortingDropdown>
+            <hlm-menu>
+               <label hlmLabel class="flex items-center ps-2 pe-4 py-1">
+                  <hlm-checkbox [(ngModel)]="multipleFieldsSorting" class="mr-2"/>
+                  Multiple Fields Sorting
+               </label>
+            </hlm-menu>
+         </ng-template>
+         <!-- Dropdown Content -->
+      </div>
+      <!-- Multiple Sorting Dropdown -->
+
+   </div>
+
+</div>

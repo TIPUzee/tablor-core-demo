@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import '@angular/cdk/overlay-prebuilt.css';
+
+:root {
+    --font-sans: ''
+}
+
+:root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+    color-scheme: light;
+}
+
+.dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    color-scheme: dark;
+}
+
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+}
+
+
+@layer components {
+
+    .cards-container {
+        @apply flex flex-row flex-wrap gap-y-5 gap-x-4 py-4
+    }
+
+    .card {
+        @apply px-10 py-8 rounded-[3rem] shadow-md border border-gray-100 grid grid-cols-3 flex-wrap gap-x-2 gap-y-4 w-full relative;
+
+        .separator {
+            @apply col-span-3;
+
+            .line {
+                @apply border-b border-gray-200 w-[95%] mx-auto;
+            }
+        }
+
+        .section {
+            @apply flex-grow flex-shrink-0;
+        }
+
+        .title {
+            @apply font-semibold text-sm text-gray-500 uppercase mb-2;
+        }
+
+        .username {
+            @apply text-lg;
+        }
+
+        .bank {
+            @apply text-sm text-gray-500;
+        }
+
+        .amount {
+            @apply font-bold text-2xl text-gray-800;
+        }
+
+        .transaction-type {
+            @apply font-semibold text-sm text-gray-500 uppercase;
+
+            &.credit {
+                @apply text-green-500;
+            }
+
+            &.debit {
+                @apply text-red-500;
+            }
+        }
+
+        .status {
+            @apply font-semibold text-sm uppercase;
+
+            &.pending {
+                @apply text-yellow-500;
+            }
+
+            &.approved {
+                @apply text-green-500;
+            }
+
+            &.rejected {
+                @apply text-red-500;
+            }
+
+            &.failed {
+                @apply text-red-500;
+            }
+
+            &.completed {
+                @apply text-green-500;
+            }
+        }
+
+        .description {
+            @apply max-w-56 leading-5 mb-1.5 text-gray-500;
+        }
+
+        .empty {
+            @apply text-gray-400;
+        }
+
+        .link {
+            @apply text-blue-500 underline;
+        }
+
+        .top-right-content {
+            @apply absolute top-0 right-0;
+        }
+
+    }
+
+    .top-sticky-cards {
+        @apply sticky top-1 z-10 bg-white rounded-b-[3rem];
+    }
+
+    .card.card-col {
+        @apply grid-cols-1;
+    }
+
+    .pagination {
+        @apply flex justify-between items-center w-full;
+
+        .selected-items-info {
+            @apply text-sm text-gray-500;
+        }
+
+        .paging-actions {
+            @apply flex items-center gap-2;
+        }
+
+        .page-info {
+            @apply text-sm text-gray-500;
+        }
+    }
+
+
+    .selected-item-actions {
+        @apply flex justify-between items-center;
+
+        .selected-items-info {
+            @apply text-sm text-gray-500;
+        }
+
+        .actions {
+            @apply flex items-center gap-2;
+        }
+    }
+
+    .sorting {
+        @apply flex justify-between items-center gap-2;
+    }
+}

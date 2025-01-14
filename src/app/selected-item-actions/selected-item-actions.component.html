@@ -1,0 +1,58 @@
+<div class="selected-item-actions">
+
+   <!-- Selected Items Preview Dropdown -->
+   <div class="selected-items-info">
+      <!-- Dropdown Trigger -->
+      <button [brnMenuTriggerFor]="menu">
+         View Selected Items
+         <ng-icon hlm hlmMenuIcon name="lucideChevronDown"/>
+      </button>
+      <!-- Dropdown Trigger -->
+
+      <!-- Dropdown Content -->
+      <ng-template #menu>
+         <hlm-menu class="dropdown">
+            @for (item of tablor.getSelectedItems(); track item.tablorMeta.uuid) {
+               <div hlmMenuItem>
+                  <div class="flex flex-col gap-0.5">
+                     <div class="flex gap-2">
+                        <div>{{ item.transactionId }}</div>
+                        <div>{{ item.user }}</div>
+                        <div>{{ item.status }}</div>
+                     </div>
+                     <div class="flex gap-2">
+                        <div>${{ item.amount }}</div>
+                        <div>{{ item.transactionType }}</div>
+                        <div>{{ item.bank }}</div>
+                     </div>
+                  </div>
+               </div>
+            }
+         </hlm-menu>
+      </ng-template>
+      <!-- Dropdown Content -->
+   </div>
+   <!-- Selected Items Preview Dropdown -->
+
+   <!-- Actions -->
+   <div class="actions">
+      <!-- Delete Action -->
+      <button
+         (click)="tablor.removeItems(tablor.getSelectedItems())" hlmBtn
+         variant="destructive"
+      >
+         Delete
+      </button>
+      <!-- Delete Action -->
+
+      <!-- Edit Action -->
+      <brn-hover-card>
+         <button [showDelay]="1" brnHoverCardTrigger hlmBtn variant="secondary">Edit</button>
+         <hlm-hover-card-content *brnHoverCardContent>
+            Implement your edit action first
+         </hlm-hover-card-content>
+      </brn-hover-card>
+      <!-- Edit Action -->
+   </div>
+   <!-- Actions -->
+</div>
