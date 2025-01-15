@@ -1,5 +1,5 @@
 // Angular modules
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 // Ng Icons
 import { NgIcon, provideIcons } from '@ng-icons/core'
@@ -23,6 +23,8 @@ import {
 import { NgScrollbarModule } from 'ngx-scrollbar'
 import { HlmScrollAreaDirective } from '@spartan-ng/ui-scrollarea-helm'
 import { HlmCheckboxCheckIconComponent, HlmCheckboxComponent } from '@spartan-ng/ui-checkbox-helm'
+import { NgxSonnerToaster, toast, ToasterProps } from 'ngx-sonner'
+import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm'
 // Dataset
 import { Transaction, transactionFields } from '../dataset/transactions-type'
 import { transactionsDataset } from '../dataset/transactions-dataset'
@@ -62,11 +64,13 @@ import { SearchComponent } from './searching/search.component'
         HlmMenuItemIconDirective,
         HlmMenuItemDirective,
         HlmScrollAreaDirective,
+        HlmToasterComponent,
         // App
         SelectedItemActionsComponent,
         PaginationComponent,
         SortingComponent,
         SearchComponent,
+        NgxSonnerToaster,
     ],
     providers: [
         provideIcons({
@@ -76,7 +80,7 @@ import { SearchComponent } from './searching/search.component'
     ],
     templateUrl: './app.component.html',
 })
-export class AppComponent
+export class AppComponent implements OnInit
 {
     tablor: TablorCore<Transaction>
 
@@ -85,8 +89,79 @@ export class AppComponent
     {
         this.tablor = new TablorCore()
         this.tablor.initializeFields(transactionFields)
-        this.tablor.initializeItems(transactionsDataset)
 
-        this.tablor.setNbOfItemsPerPage(20)
+        this.linkEvents()
+    }
+
+
+    ngOnInit(): void
+    {
+        this.tablor.initializeItems(transactionsDataset)
+        // this.tablor.addItems(transactionsDataset) // Same as above
+
+        this.tablor.setNbOfItemsPerPage(20) // Default was 10
+    }
+
+
+    linkEvents()
+    {
+        this.tablor.$pageNbChanged.subscribe((options) =>
+        {
+            toast.success('Page Changed (for demo)', {
+                description: `from ${ options.prevPageNb } to ${ options.pageNb }`,
+            })
+        })
+
+        this.tablor.$nbOfItemsPerPageChanged.subscribe((options) =>
+        {
+            toast.success('Items Per Page Changed (for demo)', {
+                description: `from ${ options.prevNbOfItemsPerPage } to ${ options.nbOfItemsPerPage }`,
+            })
+        })
+
+        this.tablor.$itemsRemoved.subscribe((options) =>
+        {
+            toast.success('Items Removed (for demo)', {
+                description: `[${ options.removedItems }]`,
+            })
+        })
+
+        this.tablor.$itemsAdded.subscribe((options) =>
+        {
+            toast.success('Items Added (for demo)', {
+                description: `[${ options.addedItems.slice(0, 15) }, and ${ options.addedItems.length -
+                15 } more]`,
+            })
+        })
+
+        this.tablor.$itemsUpdated.subscribe((options) =>
+        {
+            toast.success('Items Added (for demo)', {
+                description: `[${ options.updatedItemsDifference.map(i => JSON.stringify(i)) }]`,
+            })
+        })
+
+        this.tablor.$sortingOptionsChanged.subscribe((options) =>
+        {
+            toast.success('Sorting Performed (for demo)', {
+                description: `from [${ options.prevOptions.map(o => o.field + ' ' + o.order)
+                    .join(', ') }] to [${ options.options.map(o => o.field + ' ' + o.order).join(', ') }]`,
+            })
+        })
+
+        this.tablor.$searchedOptionsChanged.subscribe((options) =>
+        {
+            toast.success('Searching Performed (for demo)', {
+                description: `from [${ options.prevOptions.map(o => o.by).join(', ') }] to 
+                [${ options.options.map(o => o.by).join(', ') }]`,
+            })
+        })
+
+        this.tablor.$paginatedItemsChanged.subscribe((options) =>
+        {
+            toast.success('Items on the Page Changed (for demo)', {
+                description: `from [${ options.prevPaginatedItems }] to [${ options.paginatedItems }]`,
+            })
+        })
     }
 }

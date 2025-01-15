@@ -67,11 +67,15 @@
 @layer components {
 
     .cards-container {
-        @apply flex flex-row flex-wrap gap-y-5 gap-x-4 py-4
+        @apply flex flex-row flex-wrap gap-y-8 gap-x-4 py-4
+    }
+
+    .note-board {
+        @apply text-sm text-orange-400 px-10;
     }
 
     .card {
-        @apply px-10 py-8 rounded-[3rem] shadow-md border border-gray-100 grid grid-cols-3 flex-wrap gap-x-2 gap-y-4 w-full relative;
+        @apply px-10 py-8 rounded-[3rem] shadow-lg border border-gray-100 grid grid-cols-3 flex-wrap gap-x-2 gap-y-4 w-full relative;
 
         .separator {
             @apply col-span-3;

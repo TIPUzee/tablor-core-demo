@@ -48,6 +48,9 @@
       ],
       "@spartan-ng/ui-label-helm": [
         "./libs/ui/ui-label-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-sonner-helm": [
+        "./libs/ui/ui-sonner-helm/src/index.ts"
       ]
     }
   },

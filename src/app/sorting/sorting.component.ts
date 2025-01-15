@@ -86,6 +86,12 @@ export class SortingComponent
     multipleFieldsSorting: boolean = false
 
 
+    clearSort()
+    {
+        this.tablor.clearSorting()
+    }
+
+
     sort(field: keyof Transaction)
     {
         if (this.multipleFieldsSorting)
@@ -100,11 +106,11 @@ export class SortingComponent
             this.tablor.sort({
                 field,
                 order: 'Toggle',
-                clear: {
-                    target: 'AllNested',
-                },
                 insertBehavior: {
                     insertAt: 0,
+                },
+                clear: {
+                    target: 'AllNested',
                 },
             })
         }

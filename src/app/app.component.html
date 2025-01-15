@@ -1,5 +1,22 @@
 <div class="p-10">
 
+   <div class="note-board">
+      <span class="font-bold">NOTE:</span>
+      This demo is to demonstrate how TablorCore works. One have to focus on the UI and not the logic.
+      <br>
+      All the logic is handled by the TablorCore.
+      <br>
+      For example; tablor.setPageNb(tablor.getPageNb() + 1) or
+      tablor.select(item, true) or tablor.searchByStringQuery(options)
+      or tablor.sort(options)
+
+      <br>
+      <span class="font-bold">CONTRIBUTION:</span>
+      We welcome developers to contribute to TablorCore! Help us add new features, improve the performance, and make the
+      library even better for the community. Your contributions can make a significant impact. Join us on our journey to
+      enhance TablorCore's functionality and capabilities.
+   </div>
+
    <div class="top-sticky-cards">
       <div class="card card-col mt-5">
          <app-searching [tablor]="tablor"></app-searching>
@@ -136,3 +153,5 @@
       }
    </div>
 </div>
+
+<hlm-toaster [toastOptions]="{ duration: 5000 }"/>

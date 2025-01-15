@@ -12,7 +12,7 @@
             [class]="tablor.getSortingOptions(false).length > 0 ? 'py-2 h-[unset]' : ''"
             hlmBtn
             variant="outline"
-            class="flex flex-row gap-x-1 shadow-md"
+            class="flex flex-row gap-x-1 shadow-lg"
          >
             @if (tablor.getSortingOptions(false).length > 0) {
                Sort by:
@@ -40,9 +40,19 @@
          <ng-template #sortingFieldsSelectDropdown>
             <hlm-menu>
                <ng-scrollbar hlm class="h-52 w-48">
+                  <!-- Clear Sorting Button -->
+                  <button
+                     (click)="clearSort()"
+                     class="px-2 py-1.5 text-sm w-full text-start bg-gray-200 hover:bg-gray-300 rounded"
+                  >
+                     Clear Sorting
+                  </button>
+                  <!-- Clear Sorting Button -->
+
                   @for (field of tablor.getFieldsAsArray(); track field.key) {
+                     <!-- Field Sorting Button -->
                      <button
-                        class="px-2 py-1.5 text-sm w-full text-start"
+                        class="px-2 py-1.5 text-sm w-full text-start hover:bg-gray-100 rounded"
                         (click)="sort(field.key)"
                      >
                         <span>{{ field.title }}</span>
@@ -55,6 +65,7 @@
                         }
 
                      </button>
+                     <!-- Field Sorting Button -->
                   }
                </ng-scrollbar>
             </hlm-menu>
