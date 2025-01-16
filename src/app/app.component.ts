@@ -107,43 +107,43 @@ export class AppComponent implements OnInit
     {
         this.tablor.$pageNbChanged.subscribe((options) =>
         {
-            toast.success('Page Changed (for demo)', {
+            toast.info('Page Changed (for demo)', {
                 description: `from ${ options.prevPageNb } to ${ options.pageNb }`,
             })
         })
 
         this.tablor.$nbOfItemsPerPageChanged.subscribe((options) =>
         {
-            toast.success('Items Per Page Changed (for demo)', {
+            toast.info('Items Per Page Changed (for demo)', {
                 description: `from ${ options.prevNbOfItemsPerPage } to ${ options.nbOfItemsPerPage }`,
             })
         })
 
         this.tablor.$itemsRemoved.subscribe((options) =>
         {
-            toast.success('Items Removed (for demo)', {
-                description: `[${ options.removedItems }]`,
+            toast.info('Items Removed (for demo)', {
+                description:
+                    `[${ options.removedItems.slice(0, 3) }...]`,
             })
         })
 
         this.tablor.$itemsAdded.subscribe((options) =>
         {
-            toast.success('Items Added (for demo)', {
-                description: `[${ options.addedItems.slice(0, 15) }, and ${ options.addedItems.length -
-                15 } more]`,
+            toast.info('Items Added (for demo)', {
+                description: `[${ options.addedItems.slice(0, 3) }...]`,
             })
         })
 
         this.tablor.$itemsUpdated.subscribe((options) =>
         {
-            toast.success('Items Added (for demo)', {
-                description: `[${ options.updatedItemsDifference.map(i => JSON.stringify(i)) }]`,
+            toast.info('Items Updated (for demo)', {
+                description: `[${ options.updatedItems.slice(0, 3) }...]`,
             })
         })
 
         this.tablor.$sortingOptionsChanged.subscribe((options) =>
         {
-            toast.success('Sorting Performed (for demo)', {
+            toast.info('Sorting Performed (for demo)', {
                 description: `from [${ options.prevOptions.map(o => o.field + ' ' + o.order)
                     .join(', ') }] to [${ options.options.map(o => o.field + ' ' + o.order).join(', ') }]`,
             })
@@ -151,7 +151,7 @@ export class AppComponent implements OnInit
 
         this.tablor.$searchedOptionsChanged.subscribe((options) =>
         {
-            toast.success('Searching Performed (for demo)', {
+            toast.info('Searching Performed (for demo)', {
                 description: `from [${ options.prevOptions.map(o => o.by).join(', ') }] to 
                 [${ options.options.map(o => o.by).join(', ') }]`,
             })
@@ -159,8 +159,9 @@ export class AppComponent implements OnInit
 
         this.tablor.$paginatedItemsChanged.subscribe((options) =>
         {
-            toast.success('Items on the Page Changed (for demo)', {
-                description: `from [${ options.prevPaginatedItems }] to [${ options.paginatedItems }]`,
+            toast.info('Items on the Page Changed (for demo)', {
+                description: `from [${ options.prevPaginatedItems.slice(0, 2) }...]
+                to [${ options.paginatedItems.slice(0, 2) }...]`,
             })
         })
     }
