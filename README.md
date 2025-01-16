@@ -5,12 +5,18 @@ Leverage powerful features already implemented—you just need to focus on your 
 
 --- 
 
-## 🎉 Demo
+## Demo
 
-- Fully functioning preview with pre-built Spartan UI:  
-  **👉 [Sample Preview — Spartan UI](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/spartan-ui?file=src%2Fapp%2Fapp.component.ts)**
+- Minimal setup with dataset for your own test implementation:  
+  **👉 [Try It Yourself](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/base-workspace?ctl=1&embed=1&file=src%2Fapp%2Fapp.component.ts)**
 
---- 
+- Fully functioning preview with plain HTML UI:  
+  **👉 [Plain HTML Preview](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/plain-html-showcase?ctl=1&embed=1&file=src%2Fapp%2Fapp.component.ts&view=preview)**
+
+- Fully functioning preview with Spartan UI:  
+  **👉 [Spartan UI Preview](https://stackblitz.com/github/TIPUzee/tablor-core-demo/tree/spartan-ui-showcase?ctl=1&embed=1&file=src%2Fapp%2Fapp.component.ts&view=preview)**
+
+---
 
 ## 📄 License
 
