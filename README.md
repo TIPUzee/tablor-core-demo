@@ -1,4 +1,4 @@
-# Tablor Core - Try It Yourself 🌟
+# Tablor Core - Plain HTML 🌟
 
 **Create beautiful datatables, grid views, and more effortlessly with Tablor-Core!**  
 Leverage powerful features already implemented—you just need to focus on your UI.
