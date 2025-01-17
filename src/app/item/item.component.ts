@@ -15,8 +15,8 @@ import { TablorCore } from 'tablor-core'
     imports: [
         // Angular
         FormsModule,
-        DatePipe,
         NgClass,
+        DatePipe,
         // Spartan UI
         HlmCheckboxImports,
     ],

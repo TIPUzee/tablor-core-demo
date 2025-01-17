@@ -70,10 +70,6 @@
         @apply flex flex-row flex-wrap gap-y-8 gap-x-4 py-4
     }
 
-    .note-board {
-        @apply text-sm text-orange-400 px-10;
-    }
-
     .card {
         @apply px-10 py-8 rounded-[3rem] shadow-lg border border-gray-100 grid grid-cols-3 flex-wrap gap-x-2 gap-y-4 w-full relative;
 
@@ -185,18 +181,26 @@
 
 
     .selected-item-actions {
-        @apply flex justify-between items-center;
 
         .selected-items-info {
             @apply text-sm text-gray-500;
         }
 
-        .actions {
-            @apply flex items-center gap-2;
-        }
     }
 
     .sorting {
         @apply flex justify-between items-center gap-2;
+    }
+
+    .controls {
+        @apply flex justify-between items-center gap-2 w-full;
+    }
+
+    .controls-dim-info {
+        @apply text-sm text-gray-500
+    }
+
+    .controls-actions {
+        @apply flex items-center gap-2;
     }
 }

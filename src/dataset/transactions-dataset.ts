@@ -1,6 +1,6 @@
 import { Transaction } from './transactions-type'
 
-
+// Define the transactions dataset
 export const transactionsDataset: Transaction[] = [
     {
         transactionId: 1,

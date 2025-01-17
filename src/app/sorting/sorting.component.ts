@@ -1,84 +1,50 @@
 // Angular
 import { Component, Input } from '@angular/core'
-import { NgIcon } from '@ng-icons/core'
+import { FormsModule } from '@angular/forms'
+// Ng-Icons
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { lucideChevronUp, lucideChevronDown } from '@ng-icons/lucide'
+// Spartan UI Brains
+import { BrnMenuImports } from '@spartan-ng/brain/menu'
+// Spartan UI Helm
+import { HlmMenuImports } from '@spartan-ng/ui-menu-helm'
+import { HlmScrollAreaModule } from '@spartan-ng/ui-scrollarea-helm'
+import { HlmButtonModule } from '@spartan-ng/ui-button-helm'
+import { HlmCheckboxImports } from '@spartan-ng/ui-checkbox-helm'
+import { HlmLabelModule } from '@spartan-ng/ui-label-helm'
+import { HlmIconModule } from '@spartan-ng/ui-icon-helm'
+// Ngx-Scrollbar
+import { NgScrollbarModule } from 'ngx-scrollbar'
+// Tablor Core
+import { TablorCore } from 'tablor-core'
 // Dataset
 import { Transaction } from '../../dataset/transactions-type'
-// The `TablorCore` Library
-import { TablorCore } from 'tablor-core'
-// Spartan UI
-import { BrnMenuTriggerDirective } from '@spartan-ng/brain/menu'
-import
-    {
-        HlmMenuComponent,
-        HlmMenuItemDirective,
-        HlmMenuItemIconDirective, HlmMenuItemImports,
-        HlmMenuItemSubIndicatorComponent,
-        HlmMenuLabelComponent,
-        HlmMenuSeparatorComponent,
-        HlmMenuShortcutComponent,
-        HlmSubMenuComponent,
-    } from '@spartan-ng/ui-menu-helm'
-import { HlmButtonDirective } from '@spartan-ng/ui-button-helm'
-import
-    {
-        BrnHoverCardComponent,
-        BrnHoverCardContentDirective,
-        BrnHoverCardTriggerDirective,
-    } from '@spartan-ng/brain/hover-card'
-import
-    {
-        HlmHoverCardContentComponent,
-    } from '@spartan-ng/ui-hovercard-helm'
-import { BrnSelectImports } from '@spartan-ng/brain/select'
-import { HlmSelectImports } from '@spartan-ng/ui-select-helm'
-import { NgScrollbarModule } from 'ngx-scrollbar'
-import { HlmScrollAreaDirective } from '@spartan-ng/ui-scrollarea-helm'
-import { HlmIconDirective } from '@spartan-ng/ui-icon-helm'
-import { HlmCheckboxImports } from '@spartan-ng/ui-checkbox-helm'
-import { HlmLabelDirective } from '@spartan-ng/ui-label-helm'
-import { FormsModule } from '@angular/forms'
 
 
 @Component({
     selector: 'app-sorting',
     imports: [
         // Angular
-        NgIcon,
-        // Spartan UI
-        NgScrollbarModule,
-        BrnSelectImports,
-        HlmSelectImports,
-        HlmMenuComponent,
-        BrnHoverCardComponent,
-        HlmHoverCardContentComponent,
-        BrnMenuTriggerDirective,
-        HlmMenuItemIconDirective,
-        HlmMenuItemDirective,
-        HlmButtonDirective,
-        HlmButtonDirective,
-        HlmButtonDirective,
-        BrnHoverCardContentDirective,
-        BrnHoverCardTriggerDirective,
-        HlmButtonDirective,
-        HlmButtonDirective,
-        HlmMenuItemIconDirective,
-        HlmMenuItemImports,
-        HlmButtonDirective,
-        HlmScrollAreaDirective,
-        HlmIconDirective,
-        HlmButtonDirective,
-        HlmIconDirective,
-        HlmIconDirective,
-        HlmIconDirective,
-        HlmIconDirective,
-        HlmMenuItemIconDirective,
-        HlmMenuItemImports,
-        HlmButtonDirective,
-        HlmButtonDirective,
-        HlmCheckboxImports,
-        HlmLabelDirective,
-        HlmLabelDirective,
         FormsModule,
+        // Ng-Icons
+        NgIcon,
+        // Ngx-Scrollbar
+        NgScrollbarModule,
+        // Spartan UI Brains
+        BrnMenuImports,
+        // Spartan UI Helm
+        HlmMenuImports,
+        HlmScrollAreaModule,
+        HlmButtonModule,
+        HlmCheckboxImports,
+        HlmLabelModule,
+        HlmIconModule,
+    ],
+    providers: [
+        provideIcons({
+            lucideChevronUp,
+            lucideChevronDown,
+        }),
     ],
     templateUrl: './sorting.component.html',
 })

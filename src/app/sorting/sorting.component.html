@@ -1,10 +1,11 @@
-<div class="sorting mt-5">
+<div class="controls mt-5">
 
    <div></div>
 
-   <div class="flex">
+   <!-- Sorting Actions -->
+   <div class="controls-actions">
 
-      <!-- Sorting Options Dropdown -->
+      <!-- Sorting Fields Dropdown -->
       <div>
          <!-- Dropdown Trigger -->
          <button
@@ -12,31 +13,27 @@
             [class]="tablor.getSortingOptions(false).length > 0 ? 'py-2 h-[unset]' : ''"
             hlmBtn
             variant="outline"
-            class="flex flex-row gap-x-1 shadow-lg"
+            class="flex flex-row gap-x-0.5 shadow-lg"
          >
+            Sort
             @if (tablor.getSortingOptions(false).length > 0) {
-               Sort by:
-               <div class="flex gap-1">
-                  @for (option of tablor.getSortingOptions(false); track option) {
-                     <div>
-                        {{ tablor.getFields()[option.field]?.title }}
-                        <ng-icon
-                           hlm
-                           hlmMenuIcon
-                           [name]="tablor.getSortingFieldOrder(option.field) === 'ASC' ?
-                              'lucideChevronDown' : 'lucideChevronUp'"
-                           class="text-sm"
-                        />
-                     </div>
-                  }
-               </div>
-            } @else {
-               Sort
+               <div class="pe-1">by:</div>
+               @for (option of tablor.getSortingOptions(false); track option) {
+                  <div>
+                     {{ tablor.getFields()[option.field]?.title }}
+                     <ng-icon
+                        hlm
+                        hlmMenuIcon
+                        [name]="tablor.getSortingFieldOrder(option.field) === 'ASC' ? 'lucideChevronDown' : 'lucideChevronUp'"
+                        class="text-sm"
+                     />
+                  </div>
+               }
             }
          </button>
          <!-- Dropdown Trigger -->
 
-         <!-- Dropdown Content -->
+         <!-- Dropdown Template -->
          <ng-template #sortingFieldsSelectDropdown>
             <hlm-menu>
                <ng-scrollbar hlm class="h-52 w-48">
@@ -56,23 +53,21 @@
                         (click)="sort(field.key)"
                      >
                         <span>{{ field.title }}</span>
-
                         @if (tablor.getSortingFieldKeys().includes(field.key) && tablor.getSortingFieldOrder(field.key) !== 'NONE') {
                            <ng-icon
                               hlm hlmMenuIcon
                               [name]="tablor.getSortingFieldOrder(field.key) === 'ASC' ? 'lucideChevronDown' : 'lucideChevronUp'"
                            />
                         }
-
                      </button>
                      <!-- Field Sorting Button -->
                   }
                </ng-scrollbar>
             </hlm-menu>
          </ng-template>
-         <!-- Dropdown Content -->
+         <!-- Dropdown Template -->
       </div>
-      <!-- Sorting Options Dropdown -->
+      <!-- Sorting Fields Dropdown -->
 
       <!-- Multiple Sorting Dropdown -->
       <div class="flex items-center">
@@ -82,7 +77,7 @@
          </button>
          <!-- Dropdown Trigger -->
 
-         <!-- Dropdown Content -->
+         <!-- Dropdown Template -->
          <ng-template #multipleFieldsSortingDropdown>
             <hlm-menu>
                <label hlmLabel class="flex items-center ps-2 pe-4 py-1">
@@ -91,10 +86,11 @@
                </label>
             </hlm-menu>
          </ng-template>
-         <!-- Dropdown Content -->
+         <!-- Dropdown Template -->
       </div>
       <!-- Multiple Sorting Dropdown -->
 
    </div>
+   <!-- Sorting Actions -->
 
 </div>

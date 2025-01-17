@@ -1,17 +1,18 @@
 // Angular
 import { Component, OnInit } from '@angular/core'
-// Spartan UI
+// Ngx-Sonner
 import { toast } from 'ngx-sonner'
+// Spartan UI Helm
 import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm'
-// App Components
-import { SelectedItemActionsComponent } from './selected-item-actions/selected-item-actions.component'
-import { PaginationComponent } from './pagination/pagination.component'
-import { SortingComponent } from './sorting/sorting.component'
-import { SearchComponent } from './searching/search.component'
-import { ItemComponent } from './item/item.component'
-import { NoticeBoardComponent } from './notice-board/notice-board.component'
-// The `TablorCore` Library
+// Tablor Core
 import { TablorCore } from 'tablor-core'
+// App Components
+import { NoticeBoardComponent } from './notice-board/notice-board.component'
+import { SearchComponent } from './searching/search.component'
+import { PaginationComponent } from './pagination/pagination.component'
+import { SelectedItemActionsComponent } from './selected-item-actions/selected-item-actions.component'
+import { SortingComponent } from './sorting/sorting.component'
+import { ItemComponent } from './item/item.component'
 // Dataset
 import { Transaction, transactionFields, TransactionTcT } from '../dataset/transactions-type'
 import { transactionsDataset } from '../dataset/transactions-dataset'
@@ -20,15 +21,15 @@ import { transactionsDataset } from '../dataset/transactions-dataset'
 @Component({
     selector: 'app-root',
     imports: [
-        // Spartan UI
+        // Spartan UI Helm
         HlmToasterComponent,
-        // App
-        SelectedItemActionsComponent,
-        PaginationComponent,
-        SortingComponent,
-        SearchComponent,
-        ItemComponent,
+        // App Components
         NoticeBoardComponent,
+        SearchComponent,
+        PaginationComponent,
+        SelectedItemActionsComponent,
+        SortingComponent,
+        ItemComponent,
     ],
     templateUrl: './app.component.html',
 })

@@ -1,11 +1,15 @@
-<div class="pagination">
-   <div class="selected-items-info">
-      {{ tablor.getNbOfSelectedItems() }}
-      of {{ tablor.getNbOfItems() / 1000 }}k
-      transaction(s) selected
-   </div>
+<div class="controls">
 
-   <div class="paging-actions">
+   <!-- Selected Items Info -->
+   <div class="controls-dim-info">
+      {{ tablor.getNbOfSelectedItems() }} of {{ tablor.getNbOfItems() / 1000 }}k transaction(s) selected
+   </div>
+   <!-- Selected Items Info -->
+
+   <!-- Pagination Actions -->
+   <div class="controls-actions">
+
+      <!-- Nb of Items per Page Options Select -->
       <brn-select
          (ngModelChange)="tablor.setNbOfItemsPerPage($event)"
          [ngModel]="tablor.getNbOfItemsPerPage()"
@@ -14,6 +18,7 @@
          <hlm-select-trigger class="w-20">
             <hlm-select-value/>
          </hlm-select-trigger>
+
          <hlm-select-content>
             <hlm-option [value]="10">10</hlm-option>
             <hlm-option [value]="20">20</hlm-option>
@@ -21,6 +26,9 @@
             <hlm-option [value]="-1">All</hlm-option>
          </hlm-select-content>
       </brn-select>
+      <!-- Nb of Items per Page Options Select -->
+
+      <!-- Previous Page Button -->
       <button
          (click)="tablor.setPageNb(tablor.getPageNb() - 1)"
          [disabled]="tablor.getPageNb() === 1"
@@ -28,10 +36,15 @@
       >
          Previous
       </button>
-      <div class="page-info">
-         Page {{ tablor.getPageNb() }}
-         of {{ tablor.getNbOfPages() }}
+      <!-- Previous Page Button -->
+
+      <!-- Current Page Nb of Total Pages Info -->
+      <div class="controls-dim-info">
+         Page {{ tablor.getPageNb() }} of {{ tablor.getNbOfPages() }}
       </div>
+      <!-- Current Page Nb of Total Pages Info -->
+
+      <!-- Next Page Button -->
       <button
          (click)="tablor.setPageNb(tablor.getPageNb() + 1)"
          [disabled]="tablor.getPageNb() === tablor.getNbOfPages()"
@@ -39,32 +52,40 @@
       >
          Next
       </button>
+      <!-- Next Page Button -->
 
-      <!-- First & Last Buttons Dropdown -->
-      <button [brnMenuTriggerFor]="menu">
-         <ng-icon hlm hlmMenuIcon name="lucideChevronDown" class=""/>
-      </button>
+      <!-- First and Last Page Buttons Dropdown -->
+      <div>
+         <!-- Dropdown Trigger Button -->
+         <button [brnMenuTriggerFor]="firstLastPageButtonsDropdownTemplate">
+            <ng-icon hlmMenuIcon name="lucideChevronDown" class=""/>
+         </button>
+         <!-- Dropdown Trigger Button -->
 
-      <ng-template #menu>
-         <hlm-menu>
-            <button
-               (click)="tablor.setPageNb(1)"
-               [disabled]="tablor.getPageNb() === 1"
-               hlmMenuItem
-            >
-               First page
-            </button>
-
-            <button
-               (click)="tablor.setPageNb(tablor.getNbOfPages())"
-               [disabled]="tablor.getPageNb() === tablor.getNbOfPages()"
-               hlmMenuItem
-            >
-               Last page
-            </button>
-         </hlm-menu>
-      </ng-template>
-      <!-- First & Last Buttons Dropdown -->
+         <!-- Dropdown Template -->
+         <ng-template #firstLastPageButtonsDropdownTemplate>
+            <hlm-menu>
+               <button
+                  (click)="tablor.setPageNb(1)"
+                  [disabled]="tablor.getPageNb() === 1"
+                  hlmMenuItem
+               >
+                  First page
+               </button>
+               <button
+                  (click)="tablor.setPageNb(tablor.getNbOfPages())"
+                  [disabled]="tablor.getPageNb() === tablor.getNbOfPages()"
+                  hlmMenuItem
+               >
+                  Last page
+               </button>
+            </hlm-menu>
+         </ng-template>
+         <!-- Dropdown Template -->
+      </div>
+      <!-- First and Last Page Buttons Dropdown -->
 
    </div>
+   <!-- Pagination Actions -->
+
 </div>

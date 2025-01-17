@@ -1,34 +1,20 @@
 // Angular
 import { Component, Input } from '@angular/core'
-import { NgIcon } from '@ng-icons/core'
 import { FormsModule } from '@angular/forms'
+// Ng-Icons
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { lucideChevronDown } from '@ng-icons/lucide'
+// Spartan UI Brain
+import { BrnMenuTriggerDirective } from '@spartan-ng/brain/menu'
+import { BrnSelectImports } from '@spartan-ng/brain/select'
+// Spartan UI Helm
+import { HlmMenuImports } from '@spartan-ng/ui-menu-helm'
+import { HlmButtonModule } from '@spartan-ng/ui-button-helm'
+import { HlmSelectImports } from '@spartan-ng/ui-select-helm'
+// Tablor Core
+import { TablorCore } from 'tablor-core'
 // Dataset
 import { Transaction } from '../../dataset/transactions-type'
-// The `TablorCore` Library
-import { TablorCore } from 'tablor-core'
-// Spartan UI
-import { BrnMenuTriggerDirective } from '@spartan-ng/brain/menu'
-import {
-    HlmMenuComponent,
-    HlmMenuItemDirective,
-    HlmMenuItemIconDirective,
-    HlmMenuItemSubIndicatorComponent,
-    HlmMenuLabelComponent,
-    HlmMenuSeparatorComponent,
-    HlmMenuShortcutComponent,
-    HlmSubMenuComponent,
-} from '@spartan-ng/ui-menu-helm'
-import { HlmButtonDirective } from '@spartan-ng/ui-button-helm'
-import {
-    BrnHoverCardComponent,
-    BrnHoverCardContentDirective,
-    BrnHoverCardTriggerDirective,
-} from '@spartan-ng/brain/hover-card'
-import {
-    HlmHoverCardContentComponent,
-} from '@spartan-ng/ui-hovercard-helm'
-import { BrnSelectImports } from '@spartan-ng/brain/select'
-import { HlmSelectImports } from '@spartan-ng/ui-select-helm'
 
 
 @Component({
@@ -36,18 +22,18 @@ import { HlmSelectImports } from '@spartan-ng/ui-select-helm'
     imports: [
         // Angular
         FormsModule,
+        // Ng-Icons
         NgIcon,
-        // Spartan UI
+        // Spartan UI Brain
         BrnSelectImports,
-        HlmSelectImports,
-        HlmMenuComponent,
-        HlmHoverCardContentComponent,
         BrnMenuTriggerDirective,
-        HlmMenuItemIconDirective,
-        HlmMenuItemDirective,
-        HlmButtonDirective,
-        HlmButtonDirective,
-        HlmButtonDirective,
+        // Spartan UI Helm
+        HlmSelectImports,
+        HlmMenuImports,
+        HlmButtonModule,
+    ],
+    providers: [
+        provideIcons({ lucideChevronDown }),
     ],
     templateUrl: './pagination.component.html',
 })

@@ -25,7 +25,14 @@ export type TransactionTcT = TcT<Transaction>;
 
 // Transaction fields
 export const transactionFields: TransactionTcT['RegularFields'] = {
-    transactionId: { title: 'Transaction ID' },
+    transactionId: {
+        title: 'Transaction ID',
+        // There are more props apart from `title`,
+        // but no one (even title) is used by Tablor Core internally
+        // Those props can be helpful when creating UI libraries
+        // Note that, it is essential to defined the fields,
+        // so that the Tablor Core can understand the data structure
+    },
     user: { title: 'User' },
     bank: { title: 'Bank' },
     description: { title: 'Description' },
