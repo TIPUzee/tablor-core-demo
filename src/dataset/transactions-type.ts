@@ -1,6 +1,6 @@
 import { TablorCoreTypes as TcT } from 'tablor-core'
 
-
+// Transaction type
 export type Transaction = {
     transactionId: number;
     user: string;
@@ -20,7 +20,11 @@ export type Transaction = {
     notes?: string | null;
 };
 
-export const transactionFields: TcT<Transaction>['RegularFields'] = {
+// Tablor Core types for Transaction
+export type TransactionTcT = TcT<Transaction>;
+
+// Transaction fields
+export const transactionFields: TransactionTcT['RegularFields'] = {
     transactionId: { title: 'Transaction ID' },
     user: { title: 'User' },
     bank: { title: 'Bank' },

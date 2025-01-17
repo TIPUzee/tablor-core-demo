@@ -1,0 +1,117 @@
+<div class="card">
+
+   <!-- User Section -->
+   <div class="section">
+      <div class="title">User</div>
+      <div class="username">{{ item.user }}</div>
+      <div class="bank">{{ item.bank }}</div>
+   </div>
+   <!-- User Section -->
+
+   <!-- Amount Section -->
+   <div class="section">
+      <div class="title">Amount</div>
+      <div class="amount">${{ item.amount }}</div>
+      <div
+         [ngClass]="{ credit: item.transactionType === 'Credit', debit: item.transactionType === 'Debit' }"
+         class="transaction-type"
+      >
+         {{ item.transactionType }}
+      </div>
+   </div>
+   <!-- Amount Section -->
+
+   <!-- Status Section -->
+   <div class="section">
+      <div class="title">Status</div>
+      <div
+         [ngClass]="item.status.toLowerCase()"
+         class="status"
+      >
+         {{ item.status }}
+      </div>
+   </div>
+   <!-- Status Section -->
+
+   <!-- Separator -->
+   <div class="separator">
+      <div class="line"></div>
+   </div>
+   <!-- Separator -->
+
+   <!-- Details Section -->
+   <div class="section">
+      <div class="title">Details</div>
+      <div class="description">
+         {{ item.description }}
+      </div>
+      <div class="notes">
+         <span class="title">Note:</span>
+         <span
+            [ngClass]="item.notes ? 'filled' : 'empty'"
+         >
+            {{ item.notes ? item.notes : 'N/A' }}
+         </span>
+      </div>
+   </div>
+   <!-- Details Section -->
+
+   <!-- Date Section -->
+   <div class="section">
+      <div class="title">DATE</div>
+      <div class="created-at">
+         <span class="title">Created At:</span>
+         {{ item.createdAt | date: 'short' }}
+      </div>
+      <div class="updated-at">
+         <span class="title">Updated At:</span>
+         {{ item.updatedAt | date: 'short' }}
+      </div>
+      <div class="transaction-date">
+         <span class="title">Transaction Date:</span>
+         {{ item.transactionDate | date: 'short' }}
+      </div>
+   </div>
+   <!-- Date Section -->
+
+   <!-- Notes Section -->
+   <div class="section">
+      <div class="title">NOTES</div>
+      <div class="merchant">
+         <span class="title">Merchant:</span>
+         <span [ngClass]="!item.merchant ? 'empty' : ''">
+            {{ item.merchant ? item.merchant : 'N/A' }}
+         </span>
+      </div>
+      <div class="initiated-by">
+         <span class="title">Initiated By:</span>
+         <span [ngClass]="!item.initiatedBy ? 'empty' : ''">
+            {{ item.initiatedBy ? item.initiatedBy : 'N/A' }}
+         </span>
+      </div>
+      <div class="receipt-url">
+         <span class="title">Receipt URL:</span>
+         @if (!item.receiptUrl) {
+            <span class="empty">N/A</span>
+         } @else {
+            <span class="link">
+               <a href="{{ item.receiptUrl }}" target="_blank">
+                  {{ item.receiptUrl }}
+               </a>
+            </span>
+         }
+      </div>
+   </div>
+   <!-- Notes Section -->
+
+   <!-- Checkbox -->
+   <div class="top-right-content">
+      <hlm-checkbox
+         (ngModelChange)="tablor.selectItem(item.tablorMeta.uuid, 'toggle')"
+         [ngModel]="item.tablorMeta.isSelected"
+         class="mr-2"
+      ></hlm-checkbox>
+   </div>
+   <!-- Checkbox -->
+
+</div>

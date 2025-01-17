@@ -1,157 +1,42 @@
 <div class="p-10">
 
-   <div class="note-board">
-      <span class="font-bold">NOTE:</span>
-      This demo is to demonstrate how TablorCore works. One have to focus on the UI and not the logic.
-      <br>
-      All the logic is handled by the TablorCore.
-      <br>
-      For example; tablor.setPageNb(tablor.getPageNb() + 1) or
-      tablor.select(item, true) or tablor.searchByStringQuery(options)
-      or tablor.sort(options)
-
-      <br>
-      <span class="font-bold">CONTRIBUTION:</span>
-      We welcome developers to contribute to TablorCore! Help us add new features, improve the performance, and make the
-      library even better for the community. Your contributions can make a significant impact. Join us on our journey to
-      enhance TablorCore's functionality and capabilities.
-   </div>
+   <!-- Notice board -->
+   <app-notice-board></app-notice-board>
+   <!-- Notice board -->
 
    <div class="top-sticky-cards">
       <div class="card card-col mt-5">
+
+         <!-- Searching Options -->
          <app-searching [tablor]="tablor"></app-searching>
+         <!-- Searching Options -->
+
+         <!-- Pagination Options -->
          <app-pagination [tablor]="tablor"></app-pagination>
+         <!-- Pagination Options -->
+
+         <!-- Items Selection Options -->
          @if (tablor.getNbOfSelectedItems() > 0) {
             <app-selected-item-actions [tablor]="tablor"></app-selected-item-actions>
          }
+         <!-- Items Selection Options -->
+
       </div>
    </div>
 
+   <!-- Sorting Options -->
    <app-sorting [tablor]="tablor"></app-sorting>
+   <!-- Sorting Options -->
 
    <div class="cards-container">
       @for (item of tablor.getPaginatedItems(); track item.tablorMeta.uuid) {
-         <!-- Card -->
-         <div class="card">
-
-            <!-- User Section -->
-            <div class="section">
-               <div class="title">User</div>
-               <div class="username">{{ item.user }}</div>
-               <div class="bank">{{ item.bank }}</div>
-            </div>
-            <!-- User Section -->
-
-            <!-- Amount Section -->
-            <div class="section">
-               <div class="title">Amount</div>
-               <div class="amount">${{ item.amount }}</div>
-               <div
-                  class="transaction-type"
-                  [ngClass]="{ credit: item.transactionType === 'Credit', debit: item.transactionType === 'Debit' }"
-               >
-                  {{ item.transactionType }}
-               </div>
-            </div>
-            <!-- Amount Section -->
-
-            <!-- Status Section -->
-            <div class="section">
-               <div class="title">Status</div>
-               <div
-                  class="status"
-                  [ngClass]="item.status.toLowerCase()"
-               >
-                  {{ item.status }}
-               </div>
-            </div>
-            <!-- Status Section -->
-
-            <!-- Separator -->
-            <div class="separator">
-               <div class="line"></div>
-            </div>
-            <!-- Separator -->
-
-            <!-- Details Section -->
-            <div class="section">
-               <div class="title">Details</div>
-               <div class="description">
-                  {{ item.description }}
-               </div>
-               <div class="notes">
-                  <span class="title">Note:</span>
-                  <span
-                     [ngClass]="item.notes ? 'filled' : 'empty'"
-                  >
-                     {{ item.notes ? item.notes : 'N/A' }}
-                  </span>
-               </div>
-            </div>
-            <!-- Details Section -->
-
-            <!-- Date Section -->
-            <div class="section">
-               <div class="title">DATE</div>
-               <div class="created-at">
-                  <span class="title">Created At:</span>
-                  {{ item.createdAt | date: 'short' }}
-               </div>
-               <div class="updated-at">
-                  <span class="title">Updated At:</span>
-                  {{ item.updatedAt | date: 'short' }}
-               </div>
-               <div class="transaction-date">
-                  <span class="title">Transaction Date:</span>
-                  {{ item.transactionDate | date: 'short' }}
-               </div>
-            </div>
-            <!-- Date Section -->
-
-            <!-- Notes Section -->
-            <div class="section">
-               <div class="title">NOTES</div>
-               <div class="merchant">
-                  <span class="title">Merchant:</span>
-                  <span [ngClass]="!item.merchant ? 'empty' : ''">
-                     {{ item.merchant ? item.merchant : 'N/A' }}
-                  </span>
-               </div>
-               <div class="initiated-by">
-                  <span class="title">Initiated By:</span>
-                  <span [ngClass]="!item.initiatedBy ? 'empty' : ''">
-                     {{ item.initiatedBy ? item.initiatedBy : 'N/A' }}
-                  </span>
-               </div>
-               <div class="receipt-url">
-                  <span class="title">Receipt URL:</span>
-                  @if (!item.receiptUrl) {
-                     <span class="empty">N/A</span>
-                  } @else {
-                     <span class="link">
-                        <a href="{{ item.receiptUrl }}" target="_blank">
-                           {{ item.receiptUrl }}
-                        </a>
-                     </span>
-                  }
-               </div>
-            </div>
-            <!-- Notes Section -->
-
-            <!-- Checkbox -->
-            <div class="top-right-content">
-               <hlm-checkbox
-                  class="mr-2"
-                  [ngModel]="item.tablorMeta.isSelected"
-                  (ngModelChange)="tablor.selectItem(item.tablorMeta.uuid, 'toggle')"
-               ></hlm-checkbox>
-            </div>
-            <!-- Checkbox -->
-
-         </div>
-         <!-- Card -->
+         <!-- Item -->
+         <app-item [tablor]="tablor" [item]="item" class="contents"></app-item>
+         <!-- Item -->
       }
    </div>
 </div>
 
+<!-- Sonner Toaster -->
 <hlm-toaster [toastOptions]="{ duration: 5000 }"/>
+<!-- Sonner Toaster -->
