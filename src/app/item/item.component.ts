@@ -2,12 +2,12 @@
 import { Component, Input } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { DatePipe, NgClass } from '@angular/common'
-// Spartan UI
+// Spartan UI Helm
 import { HlmCheckboxImports } from '@spartan-ng/ui-checkbox-helm'
+// Tablor Core
+import { TablorCore } from 'tablor-core'
 // Dataset
 import { Transaction, TransactionTcT } from '../../dataset/transactions-type'
-// The `TablorCore` Library
-import { TablorCore } from 'tablor-core'
 
 
 @Component({
@@ -17,7 +17,7 @@ import { TablorCore } from 'tablor-core'
         FormsModule,
         NgClass,
         DatePipe,
-        // Spartan UI
+        // Spartan UI Helm
         HlmCheckboxImports,
     ],
     templateUrl: './item.component.html',

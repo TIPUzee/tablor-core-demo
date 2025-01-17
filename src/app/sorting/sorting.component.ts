@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms'
 // Ng-Icons
 import { NgIcon, provideIcons } from '@ng-icons/core'
 import { lucideChevronUp, lucideChevronDown } from '@ng-icons/lucide'
-// Spartan UI Brains
+// Ngx-Scrollbar
+import { NgScrollbarModule } from 'ngx-scrollbar'
+// Spartan UI Brain
 import { BrnMenuImports } from '@spartan-ng/brain/menu'
 // Spartan UI Helm
 import { HlmMenuImports } from '@spartan-ng/ui-menu-helm'
@@ -13,8 +15,6 @@ import { HlmButtonModule } from '@spartan-ng/ui-button-helm'
 import { HlmCheckboxImports } from '@spartan-ng/ui-checkbox-helm'
 import { HlmLabelModule } from '@spartan-ng/ui-label-helm'
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm'
-// Ngx-Scrollbar
-import { NgScrollbarModule } from 'ngx-scrollbar'
 // Tablor Core
 import { TablorCore } from 'tablor-core'
 // Dataset
@@ -30,7 +30,7 @@ import { Transaction } from '../../dataset/transactions-type'
         NgIcon,
         // Ngx-Scrollbar
         NgScrollbarModule,
-        // Spartan UI Brains
+        // Spartan UI Brain
         BrnMenuImports,
         // Spartan UI Helm
         HlmMenuImports,
